@@ -1,0 +1,193 @@
+# MMLU评估配置文件 - 双模块LoRA模型
+# 基于FederatedLLM的评估框架设计
+
+# 基础配置
+seed: 567
+use_gpu: True
+device: 0
+
+# 模型配置
+model:
+  # 基础模型路径
+  base_model_path: '/home/szk_25/FederatedLLM/llama-7b'
+  # 适配器权重路径（训练好的双模块LoRA权重）
+  # 请将此目录改为实际的单个实验子目录，路径不应包含重复的绝对路径片段
+  adapter_path: '/home/szk_25/FedSA-LoRA-Dual/exp/dual-lora_/sub_exp_20251012235324'
+
+# 双模块LoRA配置
+llm:
+  tok_len: 128
+  adapter:
+    use: True
+    args: 
+      - adapter_package: 'dual_lora'
+        adapter_method: 'dual_lora'
+        use_dual_lora: True
+        
+        # 全局适配器配置
+        global_r: 8
+        lora_alpha: 16
+        lora_dropout: 0.05
+        
+        # 本地适配器配置  
+        local_r: 4
+        
+        # 融合机制配置
+        fusion_method: 'weighted_sum'
+        
+        # 目标模块
+        target_modules: ['q_proj', 'k_proj', 'v_proj', 'o_proj']
+
+# MMLU评估配置
+evaluation:
+  # 评估数据集
+  dataset: 'mmlu'
+  
+  # 评估模式
+  mode: 'comprehensive'  # 'comprehensive', 'stem', 'humanities', 'social_sciences', 'other'
+  
+  # 评估任务列表
+  tasks:
+    # STEM任务
+    stem_tasks:
+      # - 'abstract_algebra'
+      # - 'anatomy'
+      # - 'astronomy'
+      # - 'college_biology'
+    #   - 'college_chemistry'
+    #   - 'college_computer_science'
+    #   - 'college_mathematics'
+    #   - 'college_medicine'
+    #   - 'college_physics'
+    #   - 'computer_security'
+    #   - 'conceptual_physics'
+    #   - 'electrical_engineering'
+    #   - 'elementary_mathematics'
+    #   - 'high_school_biology'
+    #   - 'high_school_chemistry'
+    #   - 'high_school_computer_science'
+    #   - 'high_school_mathematics'
+    #   - 'high_school_physics'
+    #   - 'high_school_statistics'
+      - 'machine_learning'
+    #   - 'medical_genetics'
+    #   - 'virology'
+    
+    # # 人文学科任务
+    # humanities_tasks:
+    #   - 'high_school_european_history'
+    #   - 'high_school_us_history'
+    #   - 'high_school_world_history'
+    #   - 'philosophy'
+    #   - 'prehistory'
+    #   - 'world_religions'
+    
+    # # 社会科学任务
+    # social_sciences_tasks:
+    #   - 'business_ethics'
+    #   - 'high_school_geography'
+    #   - 'high_school_government_and_politics'
+    #   - 'high_school_macroeconomics'
+    #   - 'high_school_microeconomics'
+    #   - 'high_school_psychology'
+    #   - 'econometrics'
+    #   - 'management'
+    #   - 'marketing'
+    #   - 'professional_accounting'
+    #   - 'professional_psychology'
+    #   - 'public_relations'
+    #   - 'sociology'
+    #   - 'us_foreign_policy'
+    
+    # # 其他任务
+    # other_tasks:
+    #   - 'clinical_knowledge'
+    #   - 'formal_logic'
+    #   - 'global_facts'
+    #   - 'human_aging'
+    #   - 'human_sexuality'
+    #   - 'international_law'
+    #   - 'jurisprudence'
+    #   - 'logical_fallacies'
+    #   - 'miscellaneous'
+    #   - 'moral_disputes'
+    #   - 'moral_scenarios'
+    #   - 'nutrition'
+    #   - 'professional_law'
+    #   - 'professional_medicine'
+    #   - 'security_studies'
+  
+  # 评估参数
+  batch_size: 8
+  max_new_tokens: 12
+  temperature: 0.0
+  top_p: 1.0
+  top_k: 0
+  num_beams: 1
+  
+  # 输出配置
+  output_dir: '/home/szk_25/FedSA-LoRA-Dual/mmlu_evaluation_results'
+  save_detailed_results: True
+  save_per_task_results: True
+  save_per_class_results: True
+
+# 数据配置
+data:
+  # MMLU测试数据路径
+  test_data_path: '/home/szk_25/FederatedLLM/mmlu_test_1444.jsonl'
+  # 如果使用完整MMLU数据集
+  full_test_data_path: '/home/szk_25/FederatedLLM/mmlu_test_14042.jsonl'
+  
+  # 数据预处理
+  preprocessing:
+    shuffle: False
+    max_samples_per_task: null  # null表示使用全部数据
+    sample_ratio: 1.0  # 使用数据的比例
+
+# 评估指标
+metrics:
+  - 'accuracy'
+  - 'per_task_accuracy'
+  - 'per_class_accuracy'
+  - 'overall_accuracy'
+  - 'stem_accuracy'
+  - 'humanities_accuracy'
+  - 'social_sciences_accuracy'
+  - 'other_accuracy'
+
+# 日志配置
+logging:
+  level: 'INFO'
+  log_file: '/home/szk_25/FedSA-LoRA-Dual/mmlu_evaluation.log'
+  log_every_n_steps: 100
+  verbose: False
+
+# 实验配置
+experiment:
+  name: 'dual_lora_mmlu_evaluation'
+  description: 'MMLU evaluation for Dual-LoRA federated learning model'
+  tags: ['dual_lora', 'mmlu', 'evaluation', 'federated_learning']
+  
+  # 实验变体
+  variants:
+    - name: 'global_only'
+      description: 'Only global adapter evaluation'
+      use_local_adapter: False
+      use_global_adapter: True
+    
+    - name: 'local_only'
+      description: 'Only local adapter evaluation'
+      use_local_adapter: True
+      use_global_adapter: False
+    
+    - name: 'dual_fusion'
+      description: 'Dual adapter fusion evaluation'
+      use_local_adapter: True
+      use_global_adapter: True
+      fusion_method: 'weighted_sum'
+    
+    - name: 'dual_gating'
+      description: 'Dual adapter with gating mechanism'
+      use_local_adapter: True
+      use_global_adapter: True
+      fusion_method: 'gating'

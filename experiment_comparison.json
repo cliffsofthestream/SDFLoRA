@@ -1,0 +1,138 @@
+{
+  "experiment_info": {
+    "exp1_path": "/home/szk_25/FedSA-LoRA-Dual/exp/dual-lora_/home/szk_25/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251007193207",
+    "exp2_path": "/home/szk_25/FedSA-LoRA-Dual/exp/dual-lora_/home/szk_25/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251007214112",
+    "exp1_rounds": 10,
+    "exp2_rounds": 10
+  },
+  "config_differences": {
+    "seed": {
+      "exp1": 456,
+      "exp2": 456,
+      "different": false
+    },
+    "differential_privacy.epsilon": {
+      "exp1": 4.0,
+      "exp2": 0.1,
+      "different": true
+    },
+    "differential_privacy.delta": {
+      "exp1": 1e-05,
+      "exp2": 1e-06,
+      "different": true
+    },
+    "differential_privacy.aggregation_noise_scale": {
+      "exp1": 0.8,
+      "exp2": 0.8,
+      "different": false
+    },
+    "differential_privacy.global_noise_scale": {
+      "exp1": 1.0,
+      "exp2": 1.0,
+      "different": false
+    },
+    "differential_privacy.local_noise_scale": {
+      "exp1": 0.5,
+      "exp2": 0.5,
+      "different": false
+    },
+    "data.splitter_args.alpha": {
+      "exp1": null,
+      "exp2": [
+        {
+          "alpha": 0.5
+        }
+      ],
+      "different": true
+    },
+    "aggregator.dp_config.epsilon": {
+      "exp1": 4.0,
+      "exp2": 0.1,
+      "different": true
+    },
+    "aggregator.dp_config.delta": {
+      "exp1": 1e-05,
+      "exp2": 1e-06,
+      "different": true
+    }
+  },
+  "metrics_comparison": {
+    "val_accuracy_weighted": {
+      "exp1_final": 0.5412844036697247,
+      "exp2_final": 0.5412844036697247,
+      "exp1_best": 0.5447247706422018,
+      "exp2_best": 0.5447247706422018,
+      "exp1_mean": 0.5340596330275229,
+      "exp2_mean": 0.5340596330275229,
+      "exp1_std": 0.009117513399220635,
+      "exp2_std": 0.009117513399220635,
+      "correlation": 1.0,
+      "identical": true
+    },
+    "val_accuracy_avg": {
+      "exp1_final": 0.5057261817500981,
+      "exp2_final": 0.5057261817500981,
+      "exp1_best": 0.5234543741039909,
+      "exp2_best": 0.5234543741039909,
+      "exp1_mean": 0.5071143371069825,
+      "exp2_mean": 0.5071143371069825,
+      "exp1_std": 0.0132636647657091,
+      "exp2_std": 0.0132636647657091,
+      "correlation": 0.9999999999999999,
+      "identical": true
+    },
+    "val_loss_weighted": {
+      "exp1_final": 0.7287202887578842,
+      "exp2_final": 0.7287202887578842,
+      "exp1_best": 0.704330584324828,
+      "exp2_best": 0.704330584324828,
+      "exp1_mean": 0.7376636470129732,
+      "exp2_mean": 0.7376636470129732,
+      "exp1_std": 0.032588013671007235,
+      "exp2_std": 0.032588013671007235,
+      "correlation": 1.0,
+      "identical": true
+    },
+    "val_loss_avg": {
+      "exp1_final": 0.7450796114122918,
+      "exp2_final": 0.7450796114122918,
+      "exp1_best": 0.7106643145400435,
+      "exp2_best": 0.7106643145400435,
+      "exp1_mean": 0.7529612948960471,
+      "exp2_mean": 0.7529612948960471,
+      "exp1_std": 0.03973377588992707,
+      "exp2_std": 0.03973377588992707,
+      "correlation": 0.9999999999999999,
+      "identical": true
+    }
+  },
+  "client_analysis": {
+    "exp1_client_acc": [
+      0.8369565217391305,
+      0.35177865612648224,
+      0.22727272727272727,
+      0.8135593220338984,
+      0.6026058631921825,
+      0.2,
+      0.65,
+      0.36363636363636365
+    ],
+    "exp2_client_acc": [
+      0.8369565217391305,
+      0.35177865612648224,
+      0.22727272727272727,
+      0.8135593220338984,
+      0.6026058631921825,
+      0.2,
+      0.65,
+      0.36363636363636365
+    ],
+    "exp1_client_mean": 0.5057261817500981,
+    "exp2_client_mean": 0.5057261817500981,
+    "exp1_client_std": 0.23705736891891394,
+    "exp2_client_std": 0.23705736891891394,
+    "client_correlation": 0.9999999999999998,
+    "client_identical": true
+  },
+  "overall_identical": true
+}

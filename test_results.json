@@ -1,0 +1,8 @@
+{
+  "Config Loading": true,
+  "Data Loading": true,
+  "Model Path": true,
+  "Imports": true,
+  "Quick Evaluation": true,
+  "Output Directory": true
+}

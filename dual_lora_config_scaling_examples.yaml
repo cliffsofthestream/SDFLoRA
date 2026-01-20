@@ -1,0 +1,126 @@
+# 双模块LoRA配置文件 - 客户端权重缩放因子测试示例
+# 参考论文中的pk参数测试：0.01, 0.05, 0.1, 0.2
+
+seed: 789
+use_gpu: True
+device: 0
+early_stop:
+  patience: 0
+
+# DP-SGD配置
+differential_privacy:
+  enabled: True
+  epsilon: 2.0             # 隐私预算
+  delta: 1e-4              # 失败概率
+  max_grad_norm: 1.0       # 梯度裁剪阈值
+  noise_multiplier: 1.1    # 噪声乘数（自动计算）
+  
+  # 双模块LoRA特定配置
+  apply_to_global: True     # 对全局适配器应用DP-SGD
+  apply_to_local: False    # 对本地适配器应用DP-SGD（通常保持本地）
+  global_noise_scale: 1.0  # 全局适配器噪声缩放
+  local_noise_scale: 0.5   # 本地适配器噪声缩放
+  
+  # 联邦学习隐私配置
+  enable_secure_aggregation: True  # 启用安全聚合
+  aggregation_noise_scale: 0.8    # 聚合噪声缩放
+
+federate:
+  # 双模块LoRA特定配置
+  freeze_A: False           # 是否冻结A矩阵（对应全局适配器）
+  mode: standalone
+  client_num: 8
+  total_round_num: 12
+  save_to: "dual_lora_mnli_scaling.ckpt"
+  share_local_model: True
+  online_aggr: False
+  method: "dual-lora"       # 使用双模块LoRA方法
+
+# 个性化配置 - 双模块LoRA中本地参数保持本地
+personalization: 
+  local_param: ['local_lora_A', 'local_lora_B', 'global_weight', 'local_weight', 'gate', 'classifier']
+
+# 聚合器配置 - 支持双模块LoRA聚合
+aggregator:
+  # 鲁棒性规则 - 使用双模块LoRA堆叠聚合
+  robust_rule: 'dual_lora_stacked'
+  
+  # 堆叠和异构支持（继承原有FedSA-LoRA功能）
+  stacking: True
+  zero_padding: False
+  heter: True
+  
+  # 客户端权重缩放因子配置（论文中的pk参数）
+  # 测试不同的缩放因子值：
+  # - 0.01: 较小的客户端贡献
+  # - 0.05: 中等偏小的客户端贡献  
+  # - 0.1:  论文默认值
+  # - 0.2:  较大的客户端贡献
+  client_scaling_factor: 0.1  # 修改此值来测试不同缩放因子
+  use_fixed_scaling: True     # 启用固定缩放因子模式
+  
+  # 异构客户端rank配置（使用原项目格式）
+  local_ranks:
+    "0": 8    
+    "1": 8    
+    "2": 8   
+    "3": 8
+    "4": 8
+    "5": 8
+    "6": 8
+    "7": 8
+
+data:
+  root: /home/szk_25/FedSA-LoRA-Dual/GLUE  # 使用本地GLUE数据集路径
+  type: 'mnli@glue'  # 使用MNLI数据集
+  matched: True
+  splitter: 'lda'
+  splitter_args: [{'alpha': 0.5}]
+
+llm:
+  tok_len: 128
+  adapter:
+    use: True
+    args: 
+      - adapter_package: 'dual_lora'
+        adapter_method: 'dual_lora'
+        use_dual_lora: True
+        
+        # 全局适配器配置
+        global_r: 8
+        lora_alpha: 16
+        lora_dropout: 0.05
+        
+        # 本地适配器配置  
+        local_r: 4
+        
+        # 融合机制配置
+        fusion_method: 'weighted_sum'  # 'weighted_sum', 'gating', 'attention'
+        
+        # 目标模块
+        target_modules: ['q_proj', 'k_proj', 'v_proj', 'o_proj']
+
+dataloader:
+  batch_size: 8
+
+model:
+  type: '/home/szk_25/FederatedLLM/llama-7b@huggingface_llm'
+
+train:
+  local_update_steps: 10
+  batch_or_epoch: batch
+  optimizer:
+    lr: 2e-4
+  is_enable_half: True
+
+criterion:
+  type: CrossEntropyLoss
+
+trainer:
+  type: gluetrainer
+
+eval:
+  freq: 1
+  metrics: ['accuracy', 'f1']
+  count_flops: False
+  best_res_update_round_wise_key: 'val_accuracy'

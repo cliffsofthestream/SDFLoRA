@@ -1,0 +1,31 @@
+{
+  "overall_accuracy": 0.0,
+  "total_correct": 0,
+  "total_samples": 12,
+  "stem_accuracy": 0.0,
+  "humanities_accuracy": 0.0,
+  "social_sciences_accuracy": 0.0,
+  "task_results": {
+    "machine_learning": {
+      "overall_accuracy": 0.0,
+      "total_correct": 0,
+      "total_samples": 12,
+      "class_results": {
+        "machine_learning": {
+          "correct": 0,
+          "total": 12,
+          "accuracy": 0.0
+        }
+      }
+    }
+  },
+  "evaluation_time": "2025-10-13T22:39:40.443294",
+  "config": {
+    "model_path": "/home/szk_25/FederatedLLM/llama-7b",
+    "tasks": [
+      "machine_learning"
+    ],
+    "fusion_method": "weighted_sum",
+    "use_dual_lora": true
+  }
+}

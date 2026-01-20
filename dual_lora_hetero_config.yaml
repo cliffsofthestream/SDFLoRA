@@ -1,0 +1,98 @@
+# 双模块LoRA异构配置文件
+# 支持不同客户端使用不同的全局和本地rank配置
+
+seed: 123
+use_gpu: True
+device: 0
+early_stop:
+  patience: 0
+
+federate:
+  # 双模块LoRA特定配置
+  freeze_A: False           # 是否冻结A矩阵（对应全局适配器）
+  mode: standalone
+  client_num: 5
+  total_round_num: 15
+  save_to: "dual_lora_hetero_qnli.ckpt"
+  share_local_model: True
+  online_aggr: False
+  method: "dual-lora"       # 使用双模块LoRA方法
+
+# 个性化配置
+personalization: 
+  local_param: ['local_lora_A', 'local_lora_B', 'global_weight', 'local_weight', 'gate', 'classifier']
+
+# 聚合器配置 - 异构双模块LoRA
+aggregator:
+  # 鲁棒性规则 - 使用双模块LoRA异构堆叠聚合
+  robust_rule: 'dual_lora_hetero_stacked'
+  
+  # 堆叠和异构支持
+  stacking: True           # 启用堆叠以支持异构rank
+  zero_padding: True       # 启用零填充以处理不同rank
+  heter: True              # 启用异构支持
+  
+  # 异构客户端rank配置（使用原项目格式）
+  local_ranks:
+    "0": 12   # 高性能客户端: 高rank
+    "1": 8    # 平衡客户端: 中等rank
+    "2": 4    # 个性化客户端: 低rank
+    "3": 6    # 标准客户端: 中等rank
+    "4": 10   # 资源受限但参与度高的客户端
+
+data:
+  root: data/
+  type: 'qnli@glue'
+  matched: True
+  splitter: 'lda'
+  splitter_args: [{'alpha': 0.3}]  # 更不均匀的数据分布以测试异构性能
+
+llm:
+  tok_len: 128
+  adapter:
+    use: True
+    args: 
+      - adapter_package: 'dual_lora'
+        adapter_method: 'dual_lora'
+        use_dual_lora: True
+        
+        # 默认配置（会被客户端特定配置覆盖）
+        global_r: 8
+        local_r: 4
+        lora_alpha: 16
+        lora_dropout: 0.05
+        
+        # 融合机制配置
+        fusion_method: 'gating'  # 使用门控机制以更好地处理异构性
+        
+        # 目标模块
+        target_modules: ['query', 'value', 'key', 'dense']
+        
+        # 聚合和个性化策略
+        global_aggregation_strategy: 'stacked'
+        local_personalization_strategy: 'local_only'
+
+dataloader:
+  batch_size: 8
+
+model:
+  type: '/home/szk_25/FederatedLLM/llama-7b@huggingface_llm'
+
+train:
+  local_update_steps: 10
+  batch_or_epoch: batch
+  optimizer:
+    lr: 2e-4
+  is_enable_half: True
+
+criterion:
+  type: CrossEntropyLoss
+
+trainer:
+  type: gluetrainer
+
+eval:
+  freq: 1
+  metrics: ['accuracy']
+  count_flops: False
+  best_res_update_round_wise_key: 'val_accuracy'
