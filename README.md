@@ -22,7 +22,7 @@ Several scripts and configs hardcode paths (for example `/home/...`). Update the
 
 Search for `/home/` and replace with your local paths.
 
-## Quick Start (Federated Training)
+## Start (Federated Training)
 ```bash
 python code/run_dual_lora.py --cfg setting/dual_lora_config.yaml
 ```
@@ -38,7 +38,7 @@ python code/run_dual_lora.py --cfg setting/dual_lora_config.yaml --enable-dp-sgd
 python code/run_dual_lora.py --cfg setting/dual_lora_config.yaml --enable-dp-sgd --dp-epsilon 1.0 --dp-delta 1e-5
 ```
 
-## MMLU Evaluation
+## Evaluation
 Run a detailed evaluation with the provided config:
 ```bash
 python code/mmlu_evaluator.py --config setting/mmlu_evaluation_config.yaml
