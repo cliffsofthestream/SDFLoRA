@@ -2,9 +2,6 @@
 双模块LoRA聚合器实现（带DP-SGD支持）
 支持全局适配器的联邦聚合和本地适配器的个性化保持
 
-参考: 
-- NeurIPS 2024 - Dual-Personalizing Adapter for Federated Foundation Models
-- "IMPROVING LORA IN PRIVACY-PRESERVING FEDERATED LEARNING"论文
 """
 
 import torch

@@ -1,8 +1,6 @@
 """
-双模块LoRA适配器实现
-参考: NeurIPS 2024 - Dual-Personalizing Adapter for Federated Foundation Models
 
-该实现包含：
+
 1. 全局适配器 (Global Adapter): 处理跨客户端共享的通用知识
 2. 本地适配器 (Local Adapter): 处理客户端特定的个性化需求
 3. 融合机制: 将两个适配器的输出进行有效融合

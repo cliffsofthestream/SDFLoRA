@@ -1,7 +1,4 @@
-#!/usr/bin/env python3
-"""
-检查MNLI数据加载和标签处理
-"""
+
 
 import os
 import sys

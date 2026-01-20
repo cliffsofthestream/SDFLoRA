@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 """
-MMLU评估脚本 - 支持双模块LoRA模型
-基于FederatedLLM的评估框架，扩展支持双模块LoRA架构
 
-使用方法:
+
 python mmlu_evaluator.py --config mmlu_evaluation_config.yaml
 python mmlu_evaluator.py --config mmlu_evaluation_config.yaml --variant dual_fusion
 python mmlu_evaluator.py --model_path /path/to/model --tasks mmlu_abstract_algebra,mmlu_anatomy

@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
 """
-快速MMLU评估脚本
-基于FederatedLLM的global_evaluation函数，适配双模块LoRA模型
-
-使用方法:
 python quick_mmlu_eval.py --model_path /path/to/model --data_path /path/to/data.jsonl
 """
 

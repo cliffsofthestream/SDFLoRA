@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 """
-双模块LoRA联邦学习运行脚本
-参考: NeurIPS 2024 - Dual-Personalizing Adapter for Federated Foundation Models
 
 setup:
 python run_dual_lora.py --cfg dual_lora_config.yaml

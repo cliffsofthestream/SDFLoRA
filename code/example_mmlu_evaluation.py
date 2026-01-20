@@ -3,7 +3,6 @@
 MMLU评估示例脚本
 演示如何使用MMLU评估功能
 
-使用方法:
 python example_mmlu_evaluation.py
 """
 
