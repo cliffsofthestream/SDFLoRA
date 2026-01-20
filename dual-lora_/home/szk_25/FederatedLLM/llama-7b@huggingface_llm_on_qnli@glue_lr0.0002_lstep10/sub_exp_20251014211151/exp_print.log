@@ -1,0 +1,1056 @@
+2025-10-14 21:11:51,074 (logging:132) INFO: the current machine is at 127.0.1.1
+2025-10-14 21:11:51,074 (logging:134) INFO: the current dir is /home/szk_25/FedSA-LoRA-Dual
+2025-10-14 21:11:51,074 (logging:135) INFO: the output dir is exp/dual-lora_/home/szk_25/FederatedLLM/llama-7b@huggingface_llm_on_qnli@glue_lr0.0002_lstep10/sub_exp_20251014211151
+2025-10-14 21:12:57,276 (base_translator:120) WARNING: Cannot access train label distribution for splitter, split dataset without considering train label.
+2025-10-14 21:12:59,590 (config:243) INFO: the used configs are: 
+adapter:
+  use: False
+aggregator:
+  BFT_args:
+    
+  byzantine_node_num: 0
+  dual_lora_ranks: {}
+  global_aggregation_strategy: fedavg
+  heter: True
+  inside_weight: 1.0
+  local_personalization_strategy: local_only
+  local_ranks:
+    0: 16
+    1: 16
+    2: 16
+    3: 16
+    4: 16
+    5: 16
+    6: 16
+    7: 16
+  num_agg_groups: 1
+  num_agg_topk: []
+  outside_weight: 0.0
+  robust_rule: dual_lora_stacked
+  stacking: True
+  type: dual_lora_aggregator
+  zero_padding: False
+asyn:
+  use: False
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  edge_num: 100
+  edge_path: edge_data/
+  freq: 10
+  info_diff_type: l2
+  inject_round: 0
+  insert_round: 100000
+  label_type: dirty
+  max_ite: 400
+  mean: [0.9637]
+  mia_is_simulate_in: False
+  mia_simulate_in_round: 20
+  pgd_eps: 2
+  pgd_lr: 0.1
+  pgd_poisoning: False
+  poison_ratio: 0.5
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  scale_para: 1.0
+  scale_poisoning: False
+  self_epoch: 6
+  self_lr: 0.05
+  self_opt: False
+  setting: fix
+  std: [0.1592]
+  target_label_ind: -1
+  trigger_path: trigger/
+  trigger_type: edge
+backend: torch
+cfg_file: 
+check_completeness: False
+criterion:
+  type: CrossEntropyLoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  cache_dir: 
+  consistent_label_distribution: True
+  drop_last: False
+  file_path: 
+  hetero_data_name: []
+  hetero_synth_batch_size: 32
+  hetero_synth_feat_dim: 128
+  hetero_synth_prim_weight: 0.5
+  is_debug: False
+  label_list: ['entailment', 'not_entailment']
+  loader: 
+  matched: True
+  max_query_len: 128
+  max_seq_len: 384
+  max_tgt_len: 128
+  num_contrast: 0
+  num_labels: 2
+  num_of_client_for_data: []
+  num_steps: 30
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: /home/szk_25/FedSA-LoRA/data/glue/
+  save_data: False
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: lda
+  splitter_args: [{'alpha': 0.5}]
+  subsample: 1.0
+  target_transform: []
+  test_pre_transform: []
+  test_target_transform: []
+  test_transform: []
+  transform: []
+  trunc_stride: 128
+  type: qnli@glue
+  val_pre_transform: []
+  val_target_transform: []
+  val_transform: []
+  walk_length: 2
+dataloader:
+  batch_size: 8
+  drop_last: False
+  num_steps: 30
+  num_workers: 0
+  pin_memory: False
+  shuffle: True
+  sizes: [10, 5]
+  theta: -1
+  type: base
+  walk_length: 2
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 0
+eval:
+  best_res_update_round_wise_key: val_accuracy
+  count_flops: False
+  freq: 1
+  metrics: ['accuracy', 'f1']
+  monitoring: []
+  report: ['weighted_avg', 'avg', 'fairness', 'raw']
+  split: ['test', 'val']
+eval_device: -1
+expname: dual-lora_/home/szk_25/FederatedLLM/llama-7b@huggingface_llm_on_qnli@glue_lr0.0002_lstep10
+expname_tag: 
+feat_engr:
+  num_bins: 5
+  scenario: hfl
+  secure:
+    dp:
+      
+    encrypt:
+      type: dummy
+    key_size: 3072
+    type: encrypt
+  selec_threshold: 0.05
+  selec_woe_binning: quantile
+  type: 
+federate:
+  atc_load_from: 
+  atc_vanilla: False
+  client_idx_for_local_train: 0
+  client_num: 8
+  data_weighted_aggr: False
+  freeze_A: False
+  ignore_weight: False
+  join_in_info: []
+  make_global_eval: False
+  master_addr: 127.0.0.1
+  master_port: 29500
+  merge_test_data: False
+  merge_val_data: False
+  method: dual-lora
+  mode: standalone
+  online_aggr: False
+  process_num: 1
+  resource_info_file: 
+  restore_from: 
+  sample_client_num: 8
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_client_model: False
+  save_freq: -1
+  save_to: dual_lora_qnli.ckpt
+  share_local_model: True
+  total_round_num: 12
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  use: False
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+fedswa:
+  use: False
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  epoch_linear: 10
+  freeze_param: 
+  local_param: []
+  local_update_steps: 1
+  lr_linear: 0.005
+  optimizer:
+    lr: 0.1
+    type: SGD
+  scheduler:
+    type: 
+    warmup_ratio: 0.0
+  simple_tuning: False
+  weight_decay: 0.0
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_accum_count: 1
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    pi_lr: 0.01
+    psn: False
+    sched: auto
+    ss: 
+    use: False
+  fts:
+    M: 100
+    M_target: 200
+    allow_load_existing_info: True
+    diff: False
+    fed_bo_max_iter: 50
+    g_var: 1e-06
+    gp_opt_schedule: 1
+    local_bo_epochs: 50
+    local_bo_max_iter: 50
+    ls: 1.0
+    obs_noise: 1e-06
+    ss: 
+    target_clients: []
+    use: False
+    v_kernel: 1.0
+    var: 0.1
+  init_cand_num: 16
+  larger_better: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  pfedhpo:
+    discrete: False
+    ss: 
+    target_fl_total_round: 1000
+    train_anchor: False
+    train_fl: False
+    use: False
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    iter: 0
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+  trial_index: 0
+  working_folder: hpo
+llm:
+  adapter:
+    args: [{'adapter_method': 'dual_lora', 'adapter_package': 'dual_lora', 'fusion_method': 'weighted_sum', 'global_r': 8, 'local_r': 4, 'lora_alpha': 16, 'lora_dropout': 0.05, 'target_modules': ['q_proj', 'k_proj', 'v_proj', 'o_proj'], 'use_dual_lora': True}]
+    mv_to_cpu: False
+    use: True
+  cache:
+    model: 
+  chat:
+    max_history_len: 10
+    max_len: 100
+  deepspeed:
+    ds_config: 
+    use: False
+  offsite_tuning:
+    emu_align:
+      data:
+        root: data
+        splits: [0.8, 0.1, 0.1]
+        type: alpaca@llm
+      exit_after_align: False
+      restore_from: 
+      save_to: 
+      train:
+        batch_or_epoch: batch
+        kd_loss_weight: 0.9
+        lm_loss_weight: 0.1
+        local_update_steps: 10
+        optimizer:
+          lr: 0.01
+          type: SGD
+      use: False
+    emu_l: 1
+    emu_r: 10
+    eval_type: emu
+    kwargs: [{}]
+    strategy: drop_layer
+    use: False
+  retry_on_nan_loss: False
+  tok_len: 128
+model:
+  contrast_temp: 1.0
+  contrast_topk: 100
+  downstream_tasks: []
+  dropout: 0.5
+  embed_size: 8
+  gamma: 0
+  graph_pooling: mean
+  hidden: 256
+  in_channels: 0
+  input_shape: ()
+  label_smoothing: 0.1
+  lambda_: 0.1
+  layer: 2
+  length_penalty: 2.0
+  max_answer_len: 30
+  max_length: 200
+  max_tree_depth: 3
+  min_length: 1
+  model_num_per_trainer: 1
+  model_type: google/bert_uncased_L-2_H-128_A-2
+  n_best_size: 20
+  no_repeat_ngram_size: 3
+  null_score_diff_threshold: 0.0
+  num_beams: 5
+  num_item: 0
+  num_labels: 1
+  num_of_trees: 10
+  num_user: 0
+  out_channels: 1
+  pretrain_tasks: []
+  stage: 
+  task: node
+  type: /home/szk_25/FederatedLLM/llama-7b@huggingface_llm
+  use_bias: True
+  use_contrastive_loss: False
+nbafl:
+  use: False
+outdir: exp/dual-lora_/home/szk_25/FederatedLLM/llama-7b@huggingface_llm_on_qnli@glue_lr0.0002_lstep10/sub_exp_20251014211151
+personalization:
+  K: 5
+  beta: 1.0
+  epoch_feature: 1
+  epoch_linear: 2
+  local_param: ['local_lora_A', 'local_lora_B', 'global_weight', 'local_weight', 'gate', 'classifier']
+  local_update_steps: 10
+  lr: 0.0002
+  lr_feature: 0.1
+  lr_linear: 0.1
+  regular_weight: 0.1
+  share_non_trainable_para: False
+  weight_decay: 0.0
+print_decimal_digits: 6
+quantization:
+  method: none
+  nbits: 8
+regularizer:
+  mu: 0.0
+  type: 
+seed: 457
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  data_para_dids: []
+  is_enable_half: True
+  local_update_steps: 10
+  optimizer:
+    lr: 0.0002
+    type: SGD
+  scheduler:
+    type: 
+    warmup_ratio: 0.0
+  vera:
+    lr_c: 0.01
+trainer:
+  disp_freq: 50
+  local_entropy:
+    alpha: 0.75
+    eps: 0.0001
+    gamma: 0.03
+    inc_factor: 1.0
+  sam:
+    adaptive: False
+    eta: 0.0
+    rho: 1.0
+  type: gluetrainer
+  val_freq: 100000000
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2025-10-14 21:12:59,594 (worker_builder:201) WARNING: Server for method dual-lora is not implemented. Will use default one
+2025-10-14 21:12:59,594 (worker_builder:79) WARNING: Clients for method dual-lora is not implemented. Will use default one
+2025-10-14 21:12:59,624 (utils:167) INFO: The device information file is not provided
+2025-10-14 21:12:59,639 (model_builder:157) WARNING: The input shape is None. Please specify the `data.input_shape`(a tuple) or give the representative data to `get_model` if necessary
+2025-10-14 21:13:22,938 (aggregator_builder:80) WARNING: Aggregator for method dual-lora is not implemented. Will use default one
+2025-10-14 21:13:22,939 (aggregator_builder:105) WARNING: The specified dual_lora_stacked aggregtion                    rule has not been supported, the vanilla fedavg algorithm                     will be used instead.
+2025-10-14 21:13:22,939 (fed_runner:178) INFO: Server has been set up ... 
+2025-10-14 21:13:23,471 (client:151) WARNING: Can't pickle local object 'DualLoRAModel._apply_dual_lora.<locals>.new_forward' in calculate model size.
+2025-10-14 21:13:23,471 (fed_runner:228) INFO: Client 1 has been set up ... 
+2025-10-14 21:13:24,001 (client:151) WARNING: Can't pickle local object 'DualLoRAModel._apply_dual_lora.<locals>.new_forward' in calculate model size.
+2025-10-14 21:13:24,002 (fed_runner:228) INFO: Client 2 has been set up ... 
+2025-10-14 21:13:24,532 (client:151) WARNING: Can't pickle local object 'DualLoRAModel._apply_dual_lora.<locals>.new_forward' in calculate model size.
+2025-10-14 21:13:24,533 (fed_runner:228) INFO: Client 3 has been set up ... 
+2025-10-14 21:13:25,062 (client:151) WARNING: Can't pickle local object 'DualLoRAModel._apply_dual_lora.<locals>.new_forward' in calculate model size.
+2025-10-14 21:13:25,062 (fed_runner:228) INFO: Client 4 has been set up ... 
+2025-10-14 21:13:25,592 (client:151) WARNING: Can't pickle local object 'DualLoRAModel._apply_dual_lora.<locals>.new_forward' in calculate model size.
+2025-10-14 21:13:25,592 (fed_runner:228) INFO: Client 5 has been set up ... 
+2025-10-14 21:13:26,122 (client:151) WARNING: Can't pickle local object 'DualLoRAModel._apply_dual_lora.<locals>.new_forward' in calculate model size.
+2025-10-14 21:13:26,122 (fed_runner:228) INFO: Client 6 has been set up ... 
+2025-10-14 21:13:26,651 (client:151) WARNING: Can't pickle local object 'DualLoRAModel._apply_dual_lora.<locals>.new_forward' in calculate model size.
+2025-10-14 21:13:26,651 (fed_runner:228) INFO: Client 7 has been set up ... 
+2025-10-14 21:13:27,180 (client:151) WARNING: Can't pickle local object 'DualLoRAModel._apply_dual_lora.<locals>.new_forward' in calculate model size.
+2025-10-14 21:13:27,181 (fed_runner:228) INFO: Client 8 has been set up ... 
+2025-10-14 21:13:27,181 (trainer:343) INFO: Model meta-info: <class 'federatedscope.glue.model.adapter_builder.AdapterModel'>.
+2025-10-14 21:13:27,204 (trainer:351) INFO: Num of original para names: 0.
+2025-10-14 21:13:27,204 (trainer:352) INFO: Num of original trainable para names: 1059.
+2025-10-14 21:13:27,205 (trainer:354) INFO: Num of preserved para names in local update: 0. 
+Preserved para names in local update: set().
+2025-10-14 21:13:27,205 (trainer:358) INFO: Num of filtered para names in local update: 0. 
+Filtered para names in local update: set().
+2025-10-14 21:13:27,205 (trainer:363) INFO: After register default hooks,
+	the hooks_in_train is:
+	{
+	  "on_fit_start": [
+	    "_hook_on_fit_start_numerical_precision",
+	    "_hook_on_data_parallel_init",
+	    "_hook_on_fit_start_init",
+	    "_hook_on_fit_start_calculate_model_size"
+	  ],
+	  "on_epoch_start": [
+	    "_hook_on_epoch_start"
+	  ],
+	  "on_batch_start": [
+	    "_hook_on_batch_start_init"
+	  ],
+	  "on_batch_forward": [
+	    "_hook_on_batch_forward",
+	    "_hook_on_batch_forward_regularizer",
+	    "_hook_on_batch_forward_flop_count"
+	  ],
+	  "on_batch_backward": [
+	    "_hook_on_batch_backward"
+	  ],
+	  "on_batch_end": [
+	    "_hook_on_batch_end"
+	  ],
+	  "on_fit_end": [
+	    "_hook_on_fit_end"
+	  ]
+	};
+	the hooks_in_eval is:
+            t{
+	  "on_fit_start": [
+	    "_hook_on_fit_start_numerical_precision",
+	    "_hook_on_data_parallel_init",
+	    "_hook_on_fit_start_init"
+	  ],
+	  "on_epoch_start": [
+	    "_hook_on_epoch_start"
+	  ],
+	  "on_batch_start": [
+	    "_hook_on_batch_start_init"
+	  ],
+	  "on_batch_forward": [
+	    "_hook_on_batch_forward"
+	  ],
+	  "on_batch_end": [
+	    "_hook_on_batch_end"
+	  ],
+	  "on_fit_end": [
+	    "_hook_on_fit_end"
+	  ]
+	}
+2025-10-14 21:13:27,734 (server:849) WARNING: Error Can't pickle local object 'DualLoRAModel._apply_dual_lora.<locals>.new_forward' in calculate model size.
+2025-10-14 21:13:27,744 (server:881) INFO: ----------- Starting training (Round #0) -------------
+2025-10-14 21:13:39,527 (client:357) INFO: {'Role': 'Client #2', 'Round': 0, 'Results_raw': {'train_loss': 60.472656, 'train_total': 80, 'train_avg_loss': 0.755908, 'train_accuracy': 0.3875}}
+2025-10-14 21:13:45,390 (client:357) INFO: {'Role': 'Client #6', 'Round': 0, 'Results_raw': {'train_loss': 50.832031, 'train_total': 80, 'train_avg_loss': 0.6354, 'train_accuracy': 0.6875}}
+2025-10-14 21:13:51,241 (client:357) INFO: {'Role': 'Client #1', 'Round': 0, 'Results_raw': {'train_loss': 54.304688, 'train_total': 80, 'train_avg_loss': 0.678809, 'train_accuracy': 0.6125}}
+2025-10-14 21:13:57,156 (client:357) INFO: {'Role': 'Client #7', 'Round': 0, 'Results_raw': {'train_loss': 68.953125, 'train_total': 80, 'train_avg_loss': 0.861914, 'train_accuracy': 0.3125}}
+2025-10-14 21:14:03,025 (client:357) INFO: {'Role': 'Client #5', 'Round': 0, 'Results_raw': {'train_loss': 53.9375, 'train_total': 80, 'train_avg_loss': 0.674219, 'train_accuracy': 0.575}}
+2025-10-14 21:14:08,932 (client:357) INFO: {'Role': 'Client #8', 'Round': 0, 'Results_raw': {'train_loss': 59.917969, 'train_total': 80, 'train_avg_loss': 0.748975, 'train_accuracy': 0.4625}}
+2025-10-14 21:14:14,855 (client:357) INFO: {'Role': 'Client #4', 'Round': 0, 'Results_raw': {'train_loss': 54.171875, 'train_total': 80, 'train_avg_loss': 0.677148, 'train_accuracy': 0.6375}}
+2025-10-14 21:14:20,771 (client:357) INFO: {'Role': 'Client #3', 'Round': 0, 'Results_raw': {'train_loss': 53.847656, 'train_total': 80, 'train_avg_loss': 0.673096, 'train_accuracy': 0.675}}
+2025-10-14 21:14:20,805 (server:344) INFO: Server: Starting evaluation at the end of round 0.
+2025-10-14 21:14:20,815 (server:350) INFO: ----------- Starting a new training round (Round #1) -------------
+2025-10-14 21:14:20,836 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:14:20,855 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:14:20,855 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:14:30,516 (client:554) INFO: {'Role': 'Client #1', 'Round': 0, 'Results_raw': {'val_loss': 307.814453, 'val_total': 326, 'val_avg_loss': 0.944216, 'val_accuracy': 0.233129}}
+2025-10-14 21:14:30,549 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:14:30,575 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:14:30,575 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:15:03,855 (client:554) INFO: {'Role': 'Client #2', 'Round': 0, 'Results_raw': {'val_loss': 927.048828, 'val_total': 1230, 'val_avg_loss': 0.753698, 'val_accuracy': 0.482927}}
+2025-10-14 21:15:03,883 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:15:03,906 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:15:03,907 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:15:32,861 (client:554) INFO: {'Role': 'Client #3', 'Round': 0, 'Results_raw': {'val_loss': 596.799805, 'val_total': 1055, 'val_avg_loss': 0.565687, 'val_accuracy': 0.780095}}
+2025-10-14 21:15:32,889 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:15:32,912 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:15:32,912 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:15:54,568 (client:554) INFO: {'Role': 'Client #4', 'Round': 0, 'Results_raw': {'val_loss': 642.835938, 'val_total': 776, 'val_avg_loss': 0.828397, 'val_accuracy': 0.376289}}
+2025-10-14 21:15:54,600 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:15:54,624 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:15:54,624 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:15:56,139 (client:554) INFO: {'Role': 'Client #5', 'Round': 0, 'Results_raw': {'val_loss': 7.626709, 'val_total': 9, 'val_avg_loss': 0.847412, 'val_accuracy': 0.222222}}
+2025-10-14 21:15:56,175 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:15:56,201 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:15:56,201 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:16:35,932 (client:554) INFO: {'Role': 'Client #6', 'Round': 0, 'Results_raw': {'val_loss': 1236.557129, 'val_total': 1455, 'val_avg_loss': 0.849867, 'val_accuracy': 0.343643}}
+2025-10-14 21:16:35,960 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:16:35,983 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:16:35,983 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:18:25,338 (client:554) INFO: {'Role': 'Client #7', 'Round': 0, 'Results_raw': {'val_loss': 186.579102, 'val_total': 309, 'val_avg_loss': 0.603816, 'val_accuracy': 0.718447}}
+2025-10-14 21:18:25,374 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:18:25,401 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:18:25,401 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:20:14,835 (client:554) INFO: {'Role': 'Client #8', 'Round': 0, 'Results_raw': {'val_loss': 169.01709, 'val_total': 303, 'val_avg_loss': 0.557812, 'val_accuracy': 0.792079}}
+2025-10-14 21:20:20,810 (client:357) INFO: {'Role': 'Client #8', 'Round': 1, 'Results_raw': {'train_loss': 50.496094, 'train_total': 80, 'train_avg_loss': 0.631201, 'train_accuracy': 0.7}}
+2025-10-14 21:20:26,804 (client:357) INFO: {'Role': 'Client #1', 'Round': 1, 'Results_raw': {'train_loss': 50.523438, 'train_total': 80, 'train_avg_loss': 0.631543, 'train_accuracy': 0.6625}}
+2025-10-14 21:20:32,716 (client:357) INFO: {'Role': 'Client #5', 'Round': 1, 'Results_raw': {'train_loss': 70.699219, 'train_total': 80, 'train_avg_loss': 0.88374, 'train_accuracy': 0.325}}
+2025-10-14 21:20:39,157 (client:357) INFO: {'Role': 'Client #4', 'Round': 1, 'Results_raw': {'train_loss': 55.160156, 'train_total': 80, 'train_avg_loss': 0.689502, 'train_accuracy': 0.5875}}
+2025-10-14 21:20:45,058 (client:357) INFO: {'Role': 'Client #6', 'Round': 1, 'Results_raw': {'train_loss': 48.287109, 'train_total': 80, 'train_avg_loss': 0.603589, 'train_accuracy': 0.7625}}
+2025-10-14 21:20:50,944 (client:357) INFO: {'Role': 'Client #2', 'Round': 1, 'Results_raw': {'train_loss': 28.867188, 'train_total': 80, 'train_avg_loss': 0.36084, 'train_accuracy': 0.95}}
+2025-10-14 21:22:36,949 (client:357) INFO: {'Role': 'Client #7', 'Round': 1, 'Results_raw': {'train_loss': 85.011719, 'train_total': 80, 'train_avg_loss': 1.062646, 'train_accuracy': 0.225}}
+2025-10-14 21:22:42,835 (client:357) INFO: {'Role': 'Client #3', 'Round': 1, 'Results_raw': {'train_loss': 57.117188, 'train_total': 80, 'train_avg_loss': 0.713965, 'train_accuracy': 0.5875}}
+2025-10-14 21:22:42,839 (server:616) INFO: {'Role': 'Server #', 'Round': 0, 'Results_weighted_avg': {'val_loss': 782.940955, 'val_total': 682.875, 'val_avg_loss': 0.745795, 'val_accuracy': 0.503203}, 'Results_avg': {'val_loss': 509.284882, 'val_total': 682.875, 'val_avg_loss': 0.743863, 'val_accuracy': 0.493604}, 'Results_fairness': {'val_total': 682.875, 'val_loss_std': 393.877968, 'val_loss_bottom_decile': 7.626709, 'val_loss_top_decile': 1236.557129, 'val_loss_min': 7.626709, 'val_loss_max': 1236.557129, 'val_loss_bottom10%': nan, 'val_loss_top10%': 1236.557129, 'val_loss_cos1': 0.79103, 'val_loss_entropy': 1.751591, 'val_avg_loss_std': 0.139337, 'val_avg_loss_bottom_decile': 0.557812, 'val_avg_loss_top_decile': 0.944216, 'val_avg_loss_min': 0.557812, 'val_avg_loss_max': 0.944216, 'val_avg_loss_bottom10%': nan, 'val_avg_loss_top10%': 0.944216, 'val_avg_loss_cos1': 0.982905, 'val_avg_loss_entropy': 2.061541, 'val_accuracy_std': 0.223489, 'val_accuracy_bottom_decile': 0.222222, 'val_accuracy_top_decile': 0.792079, 'val_accuracy_min': 0.222222, 'val_accuracy_max': 0.792079, 'val_accuracy_bottom10%': nan, 'val_accuracy_top10%': 0.792079, 'val_accuracy_cos1': 0.910975, 'val_accuracy_entropy': 1.975116}}
+2025-10-14 21:22:42,882 (server:344) INFO: Server: Starting evaluation at the end of round 1.
+2025-10-14 21:22:42,890 (server:350) INFO: ----------- Starting a new training round (Round #2) -------------
+2025-10-14 21:22:42,912 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:22:42,931 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:22:42,931 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:22:52,528 (client:554) INFO: {'Role': 'Client #1', 'Round': 1, 'Results_raw': {'val_loss': 296.772461, 'val_total': 326, 'val_avg_loss': 0.910345, 'val_accuracy': 0.279141}}
+2025-10-14 21:22:52,561 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:22:52,587 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:22:52,587 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:23:25,588 (client:554) INFO: {'Role': 'Client #2', 'Round': 1, 'Results_raw': {'val_loss': 919.054688, 'val_total': 1230, 'val_avg_loss': 0.747199, 'val_accuracy': 0.488618}}
+2025-10-14 21:23:25,615 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:23:25,638 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:23:25,639 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:25:44,313 (client:554) INFO: {'Role': 'Client #3', 'Round': 1, 'Results_raw': {'val_loss': 619.458496, 'val_total': 1055, 'val_avg_loss': 0.587164, 'val_accuracy': 0.745024}}
+2025-10-14 21:25:44,344 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:25:44,369 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:25:44,369 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:27:45,508 (client:554) INFO: {'Role': 'Client #4', 'Round': 1, 'Results_raw': {'val_loss': 628.328125, 'val_total': 776, 'val_avg_loss': 0.809701, 'val_accuracy': 0.396907}}
+2025-10-14 21:27:45,542 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:27:45,567 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:27:45,568 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:27:48,276 (client:554) INFO: {'Role': 'Client #5', 'Round': 1, 'Results_raw': {'val_loss': 7.339844, 'val_total': 9, 'val_avg_loss': 0.815538, 'val_accuracy': 0.222222}}
+2025-10-14 21:27:48,310 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:27:48,337 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:27:48,337 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:28:27,068 (client:554) INFO: {'Role': 'Client #6', 'Round': 1, 'Results_raw': {'val_loss': 1202.596191, 'val_total': 1455, 'val_avg_loss': 0.826527, 'val_accuracy': 0.360825}}
+2025-10-14 21:28:27,096 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:28:27,120 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:28:27,120 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:29:12,486 (client:554) INFO: {'Role': 'Client #7', 'Round': 1, 'Results_raw': {'val_loss': 191.413086, 'val_total': 309, 'val_avg_loss': 0.61946, 'val_accuracy': 0.708738}}
+2025-10-14 21:29:12,518 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:29:12,544 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:29:12,544 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:29:21,570 (client:554) INFO: {'Role': 'Client #8', 'Round': 1, 'Results_raw': {'val_loss': 176.23584, 'val_total': 303, 'val_avg_loss': 0.581636, 'val_accuracy': 0.732673}}
+2025-10-14 21:29:27,536 (client:357) INFO: {'Role': 'Client #4', 'Round': 2, 'Results_raw': {'train_loss': 50.929688, 'train_total': 80, 'train_avg_loss': 0.636621, 'train_accuracy': 0.725}}
+2025-10-14 21:31:13,438 (client:357) INFO: {'Role': 'Client #1', 'Round': 2, 'Results_raw': {'train_loss': 51.705078, 'train_total': 80, 'train_avg_loss': 0.646313, 'train_accuracy': 0.625}}
+2025-10-14 21:33:00,171 (client:357) INFO: {'Role': 'Client #8', 'Round': 2, 'Results_raw': {'train_loss': 52.195312, 'train_total': 80, 'train_avg_loss': 0.652441, 'train_accuracy': 0.6875}}
+2025-10-14 21:33:06,135 (client:357) INFO: {'Role': 'Client #7', 'Round': 2, 'Results_raw': {'train_loss': 68.757812, 'train_total': 80, 'train_avg_loss': 0.859473, 'train_accuracy': 0.275}}
+2025-10-14 21:34:52,122 (client:357) INFO: {'Role': 'Client #6', 'Round': 2, 'Results_raw': {'train_loss': 50.455078, 'train_total': 80, 'train_avg_loss': 0.630688, 'train_accuracy': 0.675}}
+2025-10-14 21:34:57,992 (client:357) INFO: {'Role': 'Client #2', 'Round': 2, 'Results_raw': {'train_loss': 31.525391, 'train_total': 80, 'train_avg_loss': 0.394067, 'train_accuracy': 0.9375}}
+2025-10-14 21:35:39,590 (client:357) INFO: {'Role': 'Client #3', 'Round': 2, 'Results_raw': {'train_loss': 64.009766, 'train_total': 80, 'train_avg_loss': 0.800122, 'train_accuracy': 0.5375}}
+2025-10-14 21:35:45,547 (client:357) INFO: {'Role': 'Client #5', 'Round': 2, 'Results_raw': {'train_loss': 70.34375, 'train_total': 80, 'train_avg_loss': 0.879297, 'train_accuracy': 0.3}}
+2025-10-14 21:35:45,550 (server:616) INFO: {'Role': 'Server #', 'Round': 1, 'Results_weighted_avg': {'val_loss': 774.425416, 'val_total': 682.875, 'val_avg_loss': 0.73974, 'val_accuracy': 0.504119}, 'Results_avg': {'val_loss': 505.149841, 'val_total': 682.875, 'val_avg_loss': 0.737196, 'val_accuracy': 0.491768}, 'Results_fairness': {'val_total': 682.875, 'val_loss_std': 384.681539, 'val_loss_bottom_decile': 7.339844, 'val_loss_top_decile': 1202.596191, 'val_loss_min': 7.339844, 'val_loss_max': 1202.596191, 'val_loss_bottom10%': nan, 'val_loss_top10%': 1202.596191, 'val_loss_cos1': 0.795579, 'val_loss_entropy': 1.75865, 'val_avg_loss_std': 0.117274, 'val_avg_loss_bottom_decile': 0.581636, 'val_avg_loss_top_decile': 0.910345, 'val_avg_loss_min': 0.581636, 'val_avg_loss_max': 0.910345, 'val_avg_loss_bottom10%': nan, 'val_avg_loss_top10%': 0.910345, 'val_avg_loss_cos1': 0.987582, 'val_avg_loss_entropy': 2.0666, 'val_accuracy_std': 0.197886, 'val_accuracy_bottom_decile': 0.222222, 'val_accuracy_top_decile': 0.745024, 'val_accuracy_min': 0.222222, 'val_accuracy_max': 0.745024, 'val_accuracy_bottom10%': nan, 'val_accuracy_top10%': 0.745024, 'val_accuracy_cos1': 0.927708, 'val_accuracy_entropy': 1.996547}}
+2025-10-14 21:35:45,593 (server:344) INFO: Server: Starting evaluation at the end of round 2.
+2025-10-14 21:35:45,602 (server:350) INFO: ----------- Starting a new training round (Round #3) -------------
+2025-10-14 21:35:45,623 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:35:45,642 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:35:45,643 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:35:55,237 (client:554) INFO: {'Role': 'Client #1', 'Round': 2, 'Results_raw': {'val_loss': 279.995117, 'val_total': 326, 'val_avg_loss': 0.858881, 'val_accuracy': 0.334356}}
+2025-10-14 21:35:55,270 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:35:55,295 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:35:55,295 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:36:28,303 (client:554) INFO: {'Role': 'Client #2', 'Round': 2, 'Results_raw': {'val_loss': 909.610352, 'val_total': 1230, 'val_avg_loss': 0.739521, 'val_accuracy': 0.48374}}
+2025-10-14 21:36:28,330 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:36:28,354 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:36:28,354 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:36:57,080 (client:554) INFO: {'Role': 'Client #3', 'Round': 2, 'Results_raw': {'val_loss': 658.037598, 'val_total': 1055, 'val_avg_loss': 0.623732, 'val_accuracy': 0.659716}}
+2025-10-14 21:36:57,107 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:36:57,130 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:36:57,131 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:37:18,727 (client:554) INFO: {'Role': 'Client #4', 'Round': 2, 'Results_raw': {'val_loss': 607.15625, 'val_total': 776, 'val_avg_loss': 0.782418, 'val_accuracy': 0.434278}}
+2025-10-14 21:37:18,758 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:37:18,782 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:37:18,783 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:40:40,325 (client:554) INFO: {'Role': 'Client #5', 'Round': 2, 'Results_raw': {'val_loss': 6.913574, 'val_total': 9, 'val_avg_loss': 0.768175, 'val_accuracy': 0.222222}}
+2025-10-14 21:40:40,363 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:40:40,391 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:40:40,392 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:42:59,355 (client:554) INFO: {'Role': 'Client #6', 'Round': 2, 'Results_raw': {'val_loss': 1151.901367, 'val_total': 1455, 'val_avg_loss': 0.791685, 'val_accuracy': 0.393814}}
+2025-10-14 21:42:59,382 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:42:59,406 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:42:59,406 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:43:09,000 (client:554) INFO: {'Role': 'Client #7', 'Round': 2, 'Results_raw': {'val_loss': 199.908203, 'val_total': 309, 'val_avg_loss': 0.646952, 'val_accuracy': 0.634304}}
+2025-10-14 21:43:09,033 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:43:09,057 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:43:09,058 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:43:18,031 (client:554) INFO: {'Role': 'Client #8', 'Round': 2, 'Results_raw': {'val_loss': 188.473633, 'val_total': 303, 'val_avg_loss': 0.622025, 'val_accuracy': 0.643564}}
+2025-10-14 21:43:23,928 (client:357) INFO: {'Role': 'Client #8', 'Round': 3, 'Results_raw': {'train_loss': 54.546875, 'train_total': 80, 'train_avg_loss': 0.681836, 'train_accuracy': 0.5375}}
+2025-10-14 21:45:11,190 (client:357) INFO: {'Role': 'Client #4', 'Round': 3, 'Results_raw': {'train_loss': 49.800781, 'train_total': 80, 'train_avg_loss': 0.62251, 'train_accuracy': 0.7625}}
+2025-10-14 21:45:17,114 (client:357) INFO: {'Role': 'Client #2', 'Round': 3, 'Results_raw': {'train_loss': 28.666016, 'train_total': 80, 'train_avg_loss': 0.358325, 'train_accuracy': 0.9625}}
+2025-10-14 21:45:23,336 (client:357) INFO: {'Role': 'Client #5', 'Round': 3, 'Results_raw': {'train_loss': 79.667969, 'train_total': 80, 'train_avg_loss': 0.99585, 'train_accuracy': 0.2375}}
+2025-10-14 21:45:29,203 (client:357) INFO: {'Role': 'Client #3', 'Round': 3, 'Results_raw': {'train_loss': 57.050781, 'train_total': 80, 'train_avg_loss': 0.713135, 'train_accuracy': 0.5}}
+2025-10-14 21:45:35,060 (client:357) INFO: {'Role': 'Client #7', 'Round': 3, 'Results_raw': {'train_loss': 65.59375, 'train_total': 80, 'train_avg_loss': 0.819922, 'train_accuracy': 0.3375}}
+2025-10-14 21:45:45,956 (client:357) INFO: {'Role': 'Client #1', 'Round': 3, 'Results_raw': {'train_loss': 51.496094, 'train_total': 80, 'train_avg_loss': 0.643701, 'train_accuracy': 0.65}}
+2025-10-14 21:45:56,858 (client:357) INFO: {'Role': 'Client #6', 'Round': 3, 'Results_raw': {'train_loss': 48.835938, 'train_total': 80, 'train_avg_loss': 0.610449, 'train_accuracy': 0.7}}
+2025-10-14 21:45:56,861 (server:616) INFO: {'Role': 'Server #', 'Round': 2, 'Results_weighted_avg': {'val_loss': 763.397385, 'val_total': 682.875, 'val_avg_loss': 0.732564, 'val_accuracy': 0.494783}, 'Results_avg': {'val_loss': 500.249512, 'val_total': 682.875, 'val_avg_loss': 0.729174, 'val_accuracy': 0.475749}, 'Results_fairness': {'val_total': 682.875, 'val_loss_std': 372.131364, 'val_loss_bottom_decile': 6.913574, 'val_loss_top_decile': 1151.901367, 'val_loss_min': 6.913574, 'val_loss_max': 1151.901367, 'val_loss_bottom10%': nan, 'val_loss_top10%': 1151.901367, 'val_loss_cos1': 0.802346, 'val_loss_entropy': 1.768801, 'val_avg_loss_std': 0.082579, 'val_avg_loss_bottom_decile': 0.622025, 'val_avg_loss_top_decile': 0.858881, 'val_avg_loss_min': 0.622025, 'val_avg_loss_max': 0.858881, 'val_avg_loss_bottom10%': nan, 'val_avg_loss_top10%': 0.858881, 'val_avg_loss_cos1': 0.993648, 'val_avg_loss_entropy': 2.072989, 'val_accuracy_std': 0.149963, 'val_accuracy_bottom_decile': 0.222222, 'val_accuracy_top_decile': 0.659716, 'val_accuracy_min': 0.222222, 'val_accuracy_max': 0.659716, 'val_accuracy_bottom10%': nan, 'val_accuracy_top10%': 0.659716, 'val_accuracy_cos1': 0.95374, 'val_accuracy_entropy': 2.027025}}
+2025-10-14 21:45:56,894 (server:344) INFO: Server: Starting evaluation at the end of round 3.
+2025-10-14 21:45:56,903 (server:350) INFO: ----------- Starting a new training round (Round #4) -------------
+2025-10-14 21:45:56,925 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:45:56,944 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:45:56,944 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:47:51,539 (client:554) INFO: {'Role': 'Client #1', 'Round': 3, 'Results_raw': {'val_loss': 335.509766, 'val_total': 326, 'val_avg_loss': 1.029171, 'val_accuracy': 0.174847}}
+2025-10-14 21:47:51,575 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:47:51,603 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:47:51,603 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:50:04,794 (client:554) INFO: {'Role': 'Client #2', 'Round': 3, 'Results_raw': {'val_loss': 950.076172, 'val_total': 1230, 'val_avg_loss': 0.77242, 'val_accuracy': 0.481301}}
+2025-10-14 21:50:04,823 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:50:04,847 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:50:04,847 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:50:33,185 (client:554) INFO: {'Role': 'Client #3', 'Round': 3, 'Results_raw': {'val_loss': 543.984863, 'val_total': 1055, 'val_avg_loss': 0.515625, 'val_accuracy': 0.851185}}
+2025-10-14 21:50:33,214 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:50:33,238 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:50:33,239 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:50:55,169 (client:554) INFO: {'Role': 'Client #4', 'Round': 3, 'Results_raw': {'val_loss': 680.828125, 'val_total': 776, 'val_avg_loss': 0.877356, 'val_accuracy': 0.345361}}
+2025-10-14 21:50:55,201 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:50:55,225 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:50:55,226 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:52:04,651 (client:554) INFO: {'Role': 'Client #5', 'Round': 3, 'Results_raw': {'val_loss': 8.380615, 'val_total': 9, 'val_avg_loss': 0.931179, 'val_accuracy': 0.111111}}
+2025-10-14 21:52:04,686 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:52:04,713 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:52:04,713 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:52:44,159 (client:554) INFO: {'Role': 'Client #6', 'Round': 3, 'Results_raw': {'val_loss': 1325.520996, 'val_total': 1455, 'val_avg_loss': 0.911011, 'val_accuracy': 0.300344}}
+2025-10-14 21:52:44,187 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:52:44,210 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:52:44,211 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:52:53,801 (client:554) INFO: {'Role': 'Client #7', 'Round': 3, 'Results_raw': {'val_loss': 175.459961, 'val_total': 309, 'val_avg_loss': 0.567832, 'val_accuracy': 0.757282}}
+2025-10-14 21:52:53,835 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:52:53,861 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:52:53,861 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:53:03,048 (client:554) INFO: {'Role': 'Client #8', 'Round': 3, 'Results_raw': {'val_loss': 152.231445, 'val_total': 303, 'val_avg_loss': 0.502414, 'val_accuracy': 0.871287}}
+2025-10-14 21:54:49,065 (client:357) INFO: {'Role': 'Client #6', 'Round': 4, 'Results_raw': {'train_loss': 40.257812, 'train_total': 80, 'train_avg_loss': 0.503223, 'train_accuracy': 0.8625}}
+2025-10-14 21:54:54,979 (client:357) INFO: {'Role': 'Client #3', 'Round': 4, 'Results_raw': {'train_loss': 59.060547, 'train_total': 80, 'train_avg_loss': 0.738257, 'train_accuracy': 0.6}}
+2025-10-14 21:55:00,927 (client:357) INFO: {'Role': 'Client #1', 'Round': 4, 'Results_raw': {'train_loss': 50.298828, 'train_total': 80, 'train_avg_loss': 0.628735, 'train_accuracy': 0.7375}}
+2025-10-14 21:58:27,588 (client:357) INFO: {'Role': 'Client #8', 'Round': 4, 'Results_raw': {'train_loss': 52.556641, 'train_total': 80, 'train_avg_loss': 0.656958, 'train_accuracy': 0.6375}}
+2025-10-14 21:59:09,104 (client:357) INFO: {'Role': 'Client #4', 'Round': 4, 'Results_raw': {'train_loss': 37.935547, 'train_total': 80, 'train_avg_loss': 0.474194, 'train_accuracy': 0.8375}}
+2025-10-14 21:59:15,038 (client:357) INFO: {'Role': 'Client #2', 'Round': 4, 'Results_raw': {'train_loss': 19.321289, 'train_total': 80, 'train_avg_loss': 0.241516, 'train_accuracy': 1.0}}
+2025-10-14 21:59:31,006 (client:357) INFO: {'Role': 'Client #7', 'Round': 4, 'Results_raw': {'train_loss': 92.421875, 'train_total': 80, 'train_avg_loss': 1.155273, 'train_accuracy': 0.25}}
+2025-10-14 21:59:37,255 (client:357) INFO: {'Role': 'Client #5', 'Round': 4, 'Results_raw': {'train_loss': 62.199219, 'train_total': 80, 'train_avg_loss': 0.77749, 'train_accuracy': 0.425}}
+2025-10-14 21:59:37,259 (server:616) INFO: {'Role': 'Server #', 'Round': 3, 'Results_weighted_avg': {'val_loss': 807.111159, 'val_total': 682.875, 'val_avg_loss': 0.763681, 'val_accuracy': 0.503569}, 'Results_avg': {'val_loss': 521.498993, 'val_total': 682.875, 'val_avg_loss': 0.763376, 'val_accuracy': 0.48659}, 'Results_fairness': {'val_total': 682.875, 'val_loss_std': 419.822159, 'val_loss_bottom_decile': 8.380615, 'val_loss_top_decile': 1325.520996, 'val_loss_min': 8.380615, 'val_loss_max': 1325.520996, 'val_loss_bottom10%': nan, 'val_loss_top10%': 1325.520996, 'val_loss_cos1': 0.778954, 'val_loss_entropy': 1.731955, 'val_avg_loss_std': 0.194098, 'val_avg_loss_bottom_decile': 0.502414, 'val_avg_loss_top_decile': 1.029171, 'val_avg_loss_min': 0.502414, 'val_avg_loss_max': 1.029171, 'val_avg_loss_bottom10%': nan, 'val_avg_loss_top10%': 1.029171, 'val_avg_loss_cos1': 0.969163, 'val_avg_loss_entropy': 2.045998, 'val_accuracy_std': 0.284391, 'val_accuracy_bottom_decile': 0.111111, 'val_accuracy_top_decile': 0.871287, 'val_accuracy_min': 0.111111, 'val_accuracy_max': 0.871287, 'val_accuracy_bottom10%': nan, 'val_accuracy_top10%': 0.871287, 'val_accuracy_cos1': 0.863356, 'val_accuracy_entropy': 1.89785}}
+2025-10-14 21:59:37,292 (server:344) INFO: Server: Starting evaluation at the end of round 4.
+2025-10-14 21:59:37,300 (server:350) INFO: ----------- Starting a new training round (Round #5) -------------
+2025-10-14 21:59:37,322 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:59:37,341 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:59:37,341 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:59:47,015 (client:554) INFO: {'Role': 'Client #1', 'Round': 4, 'Results_raw': {'val_loss': 273.109375, 'val_total': 326, 'val_avg_loss': 0.837759, 'val_accuracy': 0.346626}}
+2025-10-14 21:59:47,049 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 21:59:47,074 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 21:59:47,074 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:00:20,095 (client:554) INFO: {'Role': 'Client #2', 'Round': 4, 'Results_raw': {'val_loss': 906.259766, 'val_total': 1230, 'val_avg_loss': 0.736797, 'val_accuracy': 0.481301}}
+2025-10-14 22:00:20,124 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:00:20,148 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:00:20,148 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:00:59,179 (client:554) INFO: {'Role': 'Client #3', 'Round': 4, 'Results_raw': {'val_loss': 674.770996, 'val_total': 1055, 'val_avg_loss': 0.639593, 'val_accuracy': 0.62654}}
+2025-10-14 22:00:59,208 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:00:59,232 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:00:59,232 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:01:40,709 (client:554) INFO: {'Role': 'Client #4', 'Round': 4, 'Results_raw': {'val_loss': 598.5625, 'val_total': 776, 'val_avg_loss': 0.771343, 'val_accuracy': 0.444588}}
+2025-10-14 22:01:40,740 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:01:40,765 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:01:40,765 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:01:42,318 (client:554) INFO: {'Role': 'Client #5', 'Round': 4, 'Results_raw': {'val_loss': 6.742676, 'val_total': 9, 'val_avg_loss': 0.749186, 'val_accuracy': 0.333333}}
+2025-10-14 22:01:42,353 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:01:42,379 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:01:42,380 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:02:21,554 (client:554) INFO: {'Role': 'Client #6', 'Round': 4, 'Results_raw': {'val_loss': 1131.479492, 'val_total': 1455, 'val_avg_loss': 0.777649, 'val_accuracy': 0.411684}}
+2025-10-14 22:02:21,579 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:02:21,602 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:02:21,602 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:02:41,082 (client:554) INFO: {'Role': 'Client #7', 'Round': 4, 'Results_raw': {'val_loss': 203.695312, 'val_total': 309, 'val_avg_loss': 0.659208, 'val_accuracy': 0.605178}}
+2025-10-14 22:02:41,116 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:02:41,141 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:02:41,142 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:02:50,262 (client:554) INFO: {'Role': 'Client #8', 'Round': 4, 'Results_raw': {'val_loss': 193.786133, 'val_total': 303, 'val_avg_loss': 0.639558, 'val_accuracy': 0.617162}}
+2025-10-14 22:02:56,281 (client:357) INFO: {'Role': 'Client #4', 'Round': 5, 'Results_raw': {'train_loss': 55.890625, 'train_total': 80, 'train_avg_loss': 0.698633, 'train_accuracy': 0.55}}
+2025-10-14 22:03:02,338 (client:357) INFO: {'Role': 'Client #7', 'Round': 5, 'Results_raw': {'train_loss': 59.691406, 'train_total': 80, 'train_avg_loss': 0.746143, 'train_accuracy': 0.475}}
+2025-10-14 22:03:18,347 (client:357) INFO: {'Role': 'Client #2', 'Round': 5, 'Results_raw': {'train_loss': 54.167969, 'train_total': 80, 'train_avg_loss': 0.6771, 'train_accuracy': 0.525}}
+2025-10-14 22:03:24,284 (client:357) INFO: {'Role': 'Client #8', 'Round': 5, 'Results_raw': {'train_loss': 45.550781, 'train_total': 80, 'train_avg_loss': 0.569385, 'train_accuracy': 0.6875}}
+2025-10-14 22:03:30,503 (client:357) INFO: {'Role': 'Client #1', 'Round': 5, 'Results_raw': {'train_loss': 51.994141, 'train_total': 80, 'train_avg_loss': 0.649927, 'train_accuracy': 0.625}}
+2025-10-14 22:03:37,082 (client:357) INFO: {'Role': 'Client #6', 'Round': 5, 'Results_raw': {'train_loss': 39.560547, 'train_total': 80, 'train_avg_loss': 0.494507, 'train_accuracy': 0.825}}
+2025-10-14 22:03:43,085 (client:357) INFO: {'Role': 'Client #5', 'Round': 5, 'Results_raw': {'train_loss': 74.386719, 'train_total': 80, 'train_avg_loss': 0.929834, 'train_accuracy': 0.25}}
+2025-10-14 22:03:59,035 (client:357) INFO: {'Role': 'Client #3', 'Round': 5, 'Results_raw': {'train_loss': 57.261719, 'train_total': 80, 'train_avg_loss': 0.715771, 'train_accuracy': 0.5}}
+2025-10-14 22:03:59,039 (server:616) INFO: {'Role': 'Server #', 'Round': 4, 'Results_weighted_avg': {'val_loss': 759.312368, 'val_total': 682.875, 'val_avg_loss': 0.730076, 'val_accuracy': 0.491854}, 'Results_avg': {'val_loss': 498.550781, 'val_total': 682.875, 'val_avg_loss': 0.726387, 'val_accuracy': 0.483301}, 'Results_fairness': {'val_total': 682.875, 'val_loss_std': 367.491761, 'val_loss_bottom_decile': 6.742676, 'val_loss_top_decile': 1131.479492, 'val_loss_min': 6.742676, 'val_loss_max': 1131.479492, 'val_loss_bottom10%': nan, 'val_loss_top10%': 1131.479492, 'val_loss_cos1': 0.804949, 'val_loss_entropy': 1.772609, 'val_avg_loss_std': 0.068251, 'val_avg_loss_bottom_decile': 0.639558, 'val_avg_loss_top_decile': 0.837759, 'val_avg_loss_min': 0.639558, 'val_avg_loss_max': 0.837759, 'val_avg_loss_bottom10%': nan, 'val_avg_loss_top10%': 0.837759, 'val_avg_loss_cos1': 0.995615, 'val_avg_loss_entropy': 2.075017, 'val_accuracy_std': 0.112412, 'val_accuracy_bottom_decile': 0.333333, 'val_accuracy_top_decile': 0.62654, 'val_accuracy_min': 0.333333, 'val_accuracy_max': 0.62654, 'val_accuracy_bottom10%': nan, 'val_accuracy_top10%': 0.62654, 'val_accuracy_cos1': 0.974001, 'val_accuracy_entropy': 2.052175}}
+2025-10-14 22:03:59,072 (server:344) INFO: Server: Starting evaluation at the end of round 5.
+2025-10-14 22:03:59,081 (server:350) INFO: ----------- Starting a new training round (Round #6) -------------
+2025-10-14 22:03:59,103 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:03:59,122 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:03:59,122 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:04:08,829 (client:554) INFO: {'Role': 'Client #1', 'Round': 5, 'Results_raw': {'val_loss': 300.977539, 'val_total': 326, 'val_avg_loss': 0.923244, 'val_accuracy': 0.251534}}
+2025-10-14 22:04:08,862 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:04:08,888 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:04:08,888 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:04:42,355 (client:554) INFO: {'Role': 'Client #2', 'Round': 5, 'Results_raw': {'val_loss': 921.089844, 'val_total': 1230, 'val_avg_loss': 0.748854, 'val_accuracy': 0.486179}}
+2025-10-14 22:04:42,384 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:04:42,407 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:04:42,407 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:05:11,486 (client:554) INFO: {'Role': 'Client #3', 'Round': 5, 'Results_raw': {'val_loss': 608.362793, 'val_total': 1055, 'val_avg_loss': 0.576647, 'val_accuracy': 0.766825}}
+2025-10-14 22:05:11,515 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:05:11,540 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:05:11,540 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:05:33,293 (client:554) INFO: {'Role': 'Client #4', 'Round': 5, 'Results_raw': {'val_loss': 633.699219, 'val_total': 776, 'val_avg_loss': 0.816623, 'val_accuracy': 0.386598}}
+2025-10-14 22:05:33,325 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:05:33,349 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:05:33,349 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:05:34,826 (client:554) INFO: {'Role': 'Client #5', 'Round': 5, 'Results_raw': {'val_loss': 7.465332, 'val_total': 9, 'val_avg_loss': 0.829481, 'val_accuracy': 0.222222}}
+2025-10-14 22:05:34,861 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:05:34,887 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:05:34,887 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:06:14,580 (client:554) INFO: {'Role': 'Client #6', 'Round': 5, 'Results_raw': {'val_loss': 1216.155762, 'val_total': 1455, 'val_avg_loss': 0.835846, 'val_accuracy': 0.345704}}
+2025-10-14 22:06:14,605 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:06:14,629 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:06:14,629 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:06:24,039 (client:554) INFO: {'Role': 'Client #7', 'Round': 5, 'Results_raw': {'val_loss': 188.975098, 'val_total': 309, 'val_avg_loss': 0.61157, 'val_accuracy': 0.708738}}
+2025-10-14 22:06:24,072 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:06:24,098 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:06:24,098 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:06:33,420 (client:554) INFO: {'Role': 'Client #8', 'Round': 5, 'Results_raw': {'val_loss': 172.821289, 'val_total': 303, 'val_avg_loss': 0.570367, 'val_accuracy': 0.768977}}
+2025-10-14 22:06:39,419 (client:357) INFO: {'Role': 'Client #8', 'Round': 6, 'Results_raw': {'train_loss': 44.634766, 'train_total': 80, 'train_avg_loss': 0.557935, 'train_accuracy': 0.725}}
+2025-10-14 22:06:55,501 (client:357) INFO: {'Role': 'Client #5', 'Round': 6, 'Results_raw': {'train_loss': 70.550781, 'train_total': 80, 'train_avg_loss': 0.881885, 'train_accuracy': 0.2875}}
+2025-10-14 22:07:01,449 (client:357) INFO: {'Role': 'Client #1', 'Round': 6, 'Results_raw': {'train_loss': 56.09375, 'train_total': 80, 'train_avg_loss': 0.701172, 'train_accuracy': 0.5375}}
+2025-10-14 22:07:07,382 (client:357) INFO: {'Role': 'Client #3', 'Round': 6, 'Results_raw': {'train_loss': 58.792969, 'train_total': 80, 'train_avg_loss': 0.734912, 'train_accuracy': 0.4625}}
+2025-10-14 22:08:53,328 (client:357) INFO: {'Role': 'Client #6', 'Round': 6, 'Results_raw': {'train_loss': 50.482422, 'train_total': 80, 'train_avg_loss': 0.63103, 'train_accuracy': 0.675}}
+2025-10-14 22:12:19,230 (client:357) INFO: {'Role': 'Client #7', 'Round': 6, 'Results_raw': {'train_loss': 68.613281, 'train_total': 80, 'train_avg_loss': 0.857666, 'train_accuracy': 0.35}}
+2025-10-14 22:14:41,095 (client:357) INFO: {'Role': 'Client #4', 'Round': 6, 'Results_raw': {'train_loss': 54.394531, 'train_total': 80, 'train_avg_loss': 0.679932, 'train_accuracy': 0.5625}}
+2025-10-14 22:14:47,218 (client:357) INFO: {'Role': 'Client #2', 'Round': 6, 'Results_raw': {'train_loss': 41.283203, 'train_total': 80, 'train_avg_loss': 0.51604, 'train_accuracy': 0.8}}
+2025-10-14 22:14:47,222 (server:616) INFO: {'Role': 'Server #', 'Round': 5, 'Results_weighted_avg': {'val_loss': 777.039082, 'val_total': 682.875, 'val_avg_loss': 0.741268, 'val_accuracy': 0.502654}, 'Results_avg': {'val_loss': 506.193359, 'val_total': 682.875, 'val_avg_loss': 0.739079, 'val_accuracy': 0.492097}, 'Results_fairness': {'val_total': 682.875, 'val_loss_std': 388.183202, 'val_loss_bottom_decile': 7.465332, 'val_loss_top_decile': 1216.155762, 'val_loss_min': 7.465332, 'val_loss_max': 1216.155762, 'val_loss_bottom10%': nan, 'val_loss_top10%': 1216.155762, 'val_loss_cos1': 0.793529, 'val_loss_entropy': 1.755519, 'val_avg_loss_std': 0.126821, 'val_avg_loss_bottom_decile': 0.570367, 'val_avg_loss_top_decile': 0.923244, 'val_avg_loss_min': 0.570367, 'val_avg_loss_max': 0.923244, 'val_avg_loss_bottom10%': nan, 'val_avg_loss_top10%': 0.923244, 'val_avg_loss_cos1': 0.985595, 'val_avg_loss_entropy': 2.064462, 'val_accuracy_std': 0.212829, 'val_accuracy_bottom_decile': 0.222222, 'val_accuracy_top_decile': 0.768977, 'val_accuracy_min': 0.222222, 'val_accuracy_max': 0.768977, 'val_accuracy_bottom10%': nan, 'val_accuracy_top10%': 0.768977, 'val_accuracy_cos1': 0.917836, 'val_accuracy_entropy': 1.984119}}
+2025-10-14 22:14:47,255 (server:344) INFO: Server: Starting evaluation at the end of round 6.
+2025-10-14 22:14:47,264 (server:350) INFO: ----------- Starting a new training round (Round #7) -------------
+2025-10-14 22:14:47,285 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:14:47,305 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:14:47,305 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:14:56,877 (client:554) INFO: {'Role': 'Client #1', 'Round': 6, 'Results_raw': {'val_loss': 375.488281, 'val_total': 326, 'val_avg_loss': 1.151805, 'val_accuracy': 0.131902}}
+2025-10-14 22:14:56,910 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:14:56,935 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:14:56,935 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:16:05,949 (client:554) INFO: {'Role': 'Client #2', 'Round': 6, 'Results_raw': {'val_loss': 992.944336, 'val_total': 1230, 'val_avg_loss': 0.807272, 'val_accuracy': 0.49187}}
+2025-10-14 22:16:05,978 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:16:06,002 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:16:06,002 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:16:34,744 (client:554) INFO: {'Role': 'Client #3', 'Round': 6, 'Results_raw': {'val_loss': 484.190918, 'val_total': 1055, 'val_avg_loss': 0.458949, 'val_accuracy': 0.888152}}
+2025-10-14 22:16:34,773 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:16:34,797 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:16:34,797 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:16:56,830 (client:554) INFO: {'Role': 'Client #4', 'Round': 6, 'Results_raw': {'val_loss': 738.867188, 'val_total': 776, 'val_avg_loss': 0.952148, 'val_accuracy': 0.322165}}
+2025-10-14 22:16:56,861 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:16:56,886 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:16:56,886 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:16:58,391 (client:554) INFO: {'Role': 'Client #5', 'Round': 6, 'Results_raw': {'val_loss': 9.463135, 'val_total': 9, 'val_avg_loss': 1.051459, 'val_accuracy': 0.111111}}
+2025-10-14 22:16:58,426 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:16:58,452 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:16:58,453 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:17:37,787 (client:554) INFO: {'Role': 'Client #6', 'Round': 6, 'Results_raw': {'val_loss': 1457.617188, 'val_total': 1455, 'val_avg_loss': 1.001799, 'val_accuracy': 0.267354}}
+2025-10-14 22:17:37,813 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:17:37,836 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:17:37,836 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:17:47,170 (client:554) INFO: {'Role': 'Client #7', 'Round': 6, 'Results_raw': {'val_loss': 163.875, 'val_total': 309, 'val_avg_loss': 0.53034, 'val_accuracy': 0.815534}}
+2025-10-14 22:17:47,203 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:17:47,228 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:17:47,229 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:17:56,485 (client:554) INFO: {'Role': 'Client #8', 'Round': 6, 'Results_raw': {'val_loss': 132.843018, 'val_total': 303, 'val_avg_loss': 0.438426, 'val_accuracy': 0.910891}}
+2025-10-14 22:18:02,507 (client:357) INFO: {'Role': 'Client #5', 'Round': 7, 'Results_raw': {'train_loss': 76.15625, 'train_total': 80, 'train_avg_loss': 0.951953, 'train_accuracy': 0.2375}}
+2025-10-14 22:18:08,487 (client:357) INFO: {'Role': 'Client #3', 'Round': 7, 'Results_raw': {'train_loss': 50.71875, 'train_total': 80, 'train_avg_loss': 0.633984, 'train_accuracy': 0.7125}}
+2025-10-14 22:18:14,641 (client:357) INFO: {'Role': 'Client #1', 'Round': 7, 'Results_raw': {'train_loss': 54.652344, 'train_total': 80, 'train_avg_loss': 0.683154, 'train_accuracy': 0.575}}
+2025-10-14 22:18:22,033 (client:357) INFO: {'Role': 'Client #4', 'Round': 7, 'Results_raw': {'train_loss': 52.820312, 'train_total': 80, 'train_avg_loss': 0.660254, 'train_accuracy': 0.675}}
+2025-10-14 22:18:28,082 (client:357) INFO: {'Role': 'Client #7', 'Round': 7, 'Results_raw': {'train_loss': 71.683594, 'train_total': 80, 'train_avg_loss': 0.896045, 'train_accuracy': 0.25}}
+2025-10-14 22:18:34,016 (client:357) INFO: {'Role': 'Client #2', 'Round': 7, 'Results_raw': {'train_loss': 48.3125, 'train_total': 80, 'train_avg_loss': 0.603906, 'train_accuracy': 0.7}}
+2025-10-14 22:18:39,955 (client:357) INFO: {'Role': 'Client #8', 'Round': 7, 'Results_raw': {'train_loss': 47.021484, 'train_total': 80, 'train_avg_loss': 0.587769, 'train_accuracy': 0.7375}}
+2025-10-14 22:18:46,120 (client:357) INFO: {'Role': 'Client #6', 'Round': 7, 'Results_raw': {'train_loss': 37.927734, 'train_total': 80, 'train_avg_loss': 0.474097, 'train_accuracy': 0.825}}
+2025-10-14 22:18:46,123 (server:616) INFO: {'Role': 'Server #', 'Round': 6, 'Results_weighted_avg': {'val_loss': 849.29893, 'val_total': 682.875, 'val_avg_loss': 0.797234, 'val_accuracy': 0.503936}, 'Results_avg': {'val_loss': 544.411133, 'val_total': 682.875, 'val_avg_loss': 0.799025, 'val_accuracy': 0.492372}, 'Results_fairness': {'val_total': 682.875, 'val_loss_std': 461.717895, 'val_loss_bottom_decile': 9.463135, 'val_loss_top_decile': 1457.617188, 'val_loss_min': 9.463135, 'val_loss_max': 1457.617188, 'val_loss_bottom10%': nan, 'val_loss_top10%': 1457.617188, 'val_loss_cos1': 0.762652, 'val_loss_entropy': 1.70307, 'val_avg_loss_std': 0.267087, 'val_avg_loss_bottom_decile': 0.438426, 'val_avg_loss_top_decile': 1.151805, 'val_avg_loss_min': 0.438426, 'val_avg_loss_max': 1.151805, 'val_avg_loss_bottom10%': nan, 'val_avg_loss_top10%': 1.151805, 'val_avg_loss_cos1': 0.948418, 'val_avg_loss_entropy': 2.020512, 'val_accuracy_std': 0.314471, 'val_accuracy_bottom_decile': 0.111111, 'val_accuracy_top_decile': 0.910891, 'val_accuracy_min': 0.111111, 'val_accuracy_max': 0.910891, 'val_accuracy_bottom10%': nan, 'val_accuracy_top10%': 0.910891, 'val_accuracy_cos1': 0.842774, 'val_accuracy_entropy': 1.862062}}
+2025-10-14 22:18:46,157 (server:344) INFO: Server: Starting evaluation at the end of round 7.
+2025-10-14 22:18:46,166 (server:350) INFO: ----------- Starting a new training round (Round #8) -------------
+2025-10-14 22:18:46,188 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:18:46,207 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:18:46,207 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:18:56,033 (client:554) INFO: {'Role': 'Client #1', 'Round': 7, 'Results_raw': {'val_loss': 448.111328, 'val_total': 326, 'val_avg_loss': 1.374575, 'val_accuracy': 0.113497}}
+2025-10-14 22:18:56,063 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:18:56,088 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:18:56,088 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:19:29,831 (client:554) INFO: {'Role': 'Client #2', 'Round': 7, 'Results_raw': {'val_loss': 1090.414062, 'val_total': 1230, 'val_avg_loss': 0.886515, 'val_accuracy': 0.497561}}
+2025-10-14 22:19:29,859 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:19:29,881 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:19:29,881 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:19:59,255 (client:554) INFO: {'Role': 'Client #3', 'Round': 7, 'Results_raw': {'val_loss': 410.080322, 'val_total': 1055, 'val_avg_loss': 0.388702, 'val_accuracy': 0.9109}}
+2025-10-14 22:19:59,283 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:19:59,308 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:19:59,308 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:20:22,720 (client:554) INFO: {'Role': 'Client #4', 'Round': 7, 'Results_raw': {'val_loss': 851.207031, 'val_total': 776, 'val_avg_loss': 1.096916, 'val_accuracy': 0.318299}}
+2025-10-14 22:20:22,736 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:20:22,757 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:20:22,757 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:20:24,305 (client:554) INFO: {'Role': 'Client #5', 'Round': 7, 'Results_raw': {'val_loss': 11.415771, 'val_total': 9, 'val_avg_loss': 1.268419, 'val_accuracy': 0.111111}}
+2025-10-14 22:20:24,340 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:20:24,366 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:20:24,366 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:21:04,126 (client:554) INFO: {'Role': 'Client #6', 'Round': 7, 'Results_raw': {'val_loss': 1706.271484, 'val_total': 1455, 'val_avg_loss': 1.172695, 'val_accuracy': 0.248797}}
+2025-10-14 22:21:04,153 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:21:04,176 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:21:04,176 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:21:13,535 (client:554) INFO: {'Role': 'Client #7', 'Round': 7, 'Results_raw': {'val_loss': 152.080322, 'val_total': 309, 'val_avg_loss': 0.492169, 'val_accuracy': 0.81877}}
+2025-10-14 22:21:13,569 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:21:13,594 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:21:13,595 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:21:22,838 (client:554) INFO: {'Role': 'Client #8', 'Round': 7, 'Results_raw': {'val_loss': 107.981689, 'val_total': 303, 'val_avg_loss': 0.356375, 'val_accuracy': 0.940594}}
+2025-10-14 22:21:34,126 (client:357) INFO: {'Role': 'Client #6', 'Round': 8, 'Results_raw': {'train_loss': 34.599609, 'train_total': 80, 'train_avg_loss': 0.432495, 'train_accuracy': 0.875}}
+2025-10-14 22:21:40,162 (client:357) INFO: {'Role': 'Client #2', 'Round': 8, 'Results_raw': {'train_loss': 18.371094, 'train_total': 80, 'train_avg_loss': 0.229639, 'train_accuracy': 0.9875}}
+2025-10-14 22:21:46,556 (client:357) INFO: {'Role': 'Client #5', 'Round': 8, 'Results_raw': {'train_loss': 94.738281, 'train_total': 80, 'train_avg_loss': 1.184229, 'train_accuracy': 0.2875}}
+2025-10-14 22:21:52,530 (client:357) INFO: {'Role': 'Client #4', 'Round': 8, 'Results_raw': {'train_loss': 47.679688, 'train_total': 80, 'train_avg_loss': 0.595996, 'train_accuracy': 0.6875}}
+2025-10-14 22:22:03,854 (client:357) INFO: {'Role': 'Client #8', 'Round': 8, 'Results_raw': {'train_loss': 56.904297, 'train_total': 80, 'train_avg_loss': 0.711304, 'train_accuracy': 0.6125}}
+2025-10-14 22:22:09,830 (client:357) INFO: {'Role': 'Client #1', 'Round': 8, 'Results_raw': {'train_loss': 50.066406, 'train_total': 80, 'train_avg_loss': 0.62583, 'train_accuracy': 0.675}}
+2025-10-14 22:22:15,924 (client:357) INFO: {'Role': 'Client #7', 'Round': 8, 'Results_raw': {'train_loss': 73.503906, 'train_total': 80, 'train_avg_loss': 0.918799, 'train_accuracy': 0.2625}}
+2025-10-14 22:22:21,904 (client:357) INFO: {'Role': 'Client #3', 'Round': 8, 'Results_raw': {'train_loss': 54.199219, 'train_total': 80, 'train_avg_loss': 0.67749, 'train_accuracy': 0.6}}
+2025-10-14 22:22:21,908 (server:616) INFO: {'Role': 'Server #', 'Round': 7, 'Results_weighted_avg': {'val_loss': 941.406555, 'val_total': 682.875, 'val_avg_loss': 0.874531, 'val_accuracy': 0.504851}, 'Results_avg': {'val_loss': 597.195251, 'val_total': 682.875, 'val_avg_loss': 0.879546, 'val_accuracy': 0.494941}, 'Results_fairness': {'val_total': 682.875, 'val_loss_std': 544.939181, 'val_loss_bottom_decile': 11.415771, 'val_loss_top_decile': 1706.271484, 'val_loss_min': 11.415771, 'val_loss_max': 1706.271484, 'val_loss_bottom10%': nan, 'val_loss_top10%': 1706.271484, 'val_loss_cos1': 0.738686, 'val_loss_entropy': 1.654802, 'val_avg_loss_std': 0.386362, 'val_avg_loss_bottom_decile': 0.356375, 'val_avg_loss_top_decile': 1.374575, 'val_avg_loss_min': 0.356375, 'val_avg_loss_max': 1.374575, 'val_avg_loss_bottom10%': nan, 'val_avg_loss_top10%': 1.374575, 'val_avg_loss_cos1': 0.91556, 'val_avg_loss_entropy': 1.97433, 'val_accuracy_std': 0.328084, 'val_accuracy_bottom_decile': 0.111111, 'val_accuracy_top_decile': 0.940594, 'val_accuracy_min': 0.111111, 'val_accuracy_max': 0.940594, 'val_accuracy_bottom10%': nan, 'val_accuracy_top10%': 0.940594, 'val_accuracy_cos1': 0.833506, 'val_accuracy_entropy': 1.844673}}
+2025-10-14 22:22:21,951 (server:344) INFO: Server: Starting evaluation at the end of round 8.
+2025-10-14 22:22:21,959 (server:350) INFO: ----------- Starting a new training round (Round #9) -------------
+2025-10-14 22:22:21,981 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:22:22,000 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:22:22,000 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:22:31,802 (client:554) INFO: {'Role': 'Client #1', 'Round': 8, 'Results_raw': {'val_loss': 281.056641, 'val_total': 326, 'val_avg_loss': 0.862137, 'val_accuracy': 0.322086}}
+2025-10-14 22:22:31,835 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:22:31,860 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:22:31,860 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:23:05,549 (client:554) INFO: {'Role': 'Client #2', 'Round': 8, 'Results_raw': {'val_loss': 908.658203, 'val_total': 1230, 'val_avg_loss': 0.738747, 'val_accuracy': 0.486179}}
+2025-10-14 22:23:05,576 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:23:05,601 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:23:05,601 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:23:35,436 (client:554) INFO: {'Role': 'Client #3', 'Round': 8, 'Results_raw': {'val_loss': 652.353516, 'val_total': 1055, 'val_avg_loss': 0.618345, 'val_accuracy': 0.67109}}
+2025-10-14 22:23:35,463 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:23:35,486 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:23:35,487 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:23:57,322 (client:554) INFO: {'Role': 'Client #4', 'Round': 8, 'Results_raw': {'val_loss': 608.125, 'val_total': 776, 'val_avg_loss': 0.783666, 'val_accuracy': 0.431701}}
+2025-10-14 22:23:57,353 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:23:57,378 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:23:57,378 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:23:58,930 (client:554) INFO: {'Role': 'Client #5', 'Round': 8, 'Results_raw': {'val_loss': 6.964844, 'val_total': 9, 'val_avg_loss': 0.773872, 'val_accuracy': 0.222222}}
+2025-10-14 22:23:58,964 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:23:58,990 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:23:58,991 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:26:19,006 (client:554) INFO: {'Role': 'Client #6', 'Round': 8, 'Results_raw': {'val_loss': 1155.745117, 'val_total': 1455, 'val_avg_loss': 0.794327, 'val_accuracy': 0.385567}}
+2025-10-14 22:26:19,035 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:26:19,059 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:26:19,059 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:28:08,103 (client:554) INFO: {'Role': 'Client #7', 'Round': 8, 'Results_raw': {'val_loss': 198.509277, 'val_total': 309, 'val_avg_loss': 0.642425, 'val_accuracy': 0.660194}}
+2025-10-14 22:28:08,139 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:28:08,166 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:28:08,166 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:31:37,234 (client:554) INFO: {'Role': 'Client #8', 'Round': 8, 'Results_raw': {'val_loss': 186.781738, 'val_total': 303, 'val_avg_loss': 0.616441, 'val_accuracy': 0.663366}}
+2025-10-14 22:33:23,137 (client:357) INFO: {'Role': 'Client #3', 'Round': 9, 'Results_raw': {'train_loss': 56.859375, 'train_total': 80, 'train_avg_loss': 0.710742, 'train_accuracy': 0.5375}}
+2025-10-14 22:33:31,359 (client:357) INFO: {'Role': 'Client #5', 'Round': 9, 'Results_raw': {'train_loss': 63.636719, 'train_total': 80, 'train_avg_loss': 0.795459, 'train_accuracy': 0.45}}
+2025-10-14 22:33:37,265 (client:357) INFO: {'Role': 'Client #4', 'Round': 9, 'Results_raw': {'train_loss': 54.371094, 'train_total': 80, 'train_avg_loss': 0.679639, 'train_accuracy': 0.6125}}
+2025-10-14 22:33:43,165 (client:357) INFO: {'Role': 'Client #7', 'Round': 9, 'Results_raw': {'train_loss': 66.542969, 'train_total': 80, 'train_avg_loss': 0.831787, 'train_accuracy': 0.3125}}
+2025-10-14 22:33:49,092 (client:357) INFO: {'Role': 'Client #2', 'Round': 9, 'Results_raw': {'train_loss': 53.117188, 'train_total': 80, 'train_avg_loss': 0.663965, 'train_accuracy': 0.5875}}
+2025-10-14 22:35:03,092 (client:357) INFO: {'Role': 'Client #6', 'Round': 9, 'Results_raw': {'train_loss': 48.978516, 'train_total': 80, 'train_avg_loss': 0.612231, 'train_accuracy': 0.7125}}
+2025-10-14 22:35:09,991 (client:357) INFO: {'Role': 'Client #8', 'Round': 9, 'Results_raw': {'train_loss': 49.517578, 'train_total': 80, 'train_avg_loss': 0.61897, 'train_accuracy': 0.65}}
+2025-10-14 22:35:15,914 (client:357) INFO: {'Role': 'Client #1', 'Round': 9, 'Results_raw': {'train_loss': 48.546875, 'train_total': 80, 'train_avg_loss': 0.606836, 'train_accuracy': 0.725}}
+2025-10-14 22:35:15,918 (server:616) INFO: {'Role': 'Server #', 'Round': 8, 'Results_weighted_avg': {'val_loss': 763.137118, 'val_total': 682.875, 'val_avg_loss': 0.731868, 'val_accuracy': 0.496797}, 'Results_avg': {'val_loss': 499.774292, 'val_total': 682.875, 'val_avg_loss': 0.728745, 'val_accuracy': 0.480301}, 'Results_fairness': {'val_total': 682.875, 'val_loss_std': 372.814898, 'val_loss_bottom_decile': 6.964844, 'val_loss_top_decile': 1155.745117, 'val_loss_min': 6.964844, 'val_loss_max': 1155.745117, 'val_loss_bottom10%': nan, 'val_loss_top10%': 1155.745117, 'val_loss_cos1': 0.801549, 'val_loss_entropy': 1.767652, 'val_avg_loss_std': 0.08624, 'val_avg_loss_bottom_decile': 0.616441, 'val_avg_loss_top_decile': 0.862137, 'val_avg_loss_min': 0.616441, 'val_avg_loss_max': 0.862137, 'val_avg_loss_bottom10%': nan, 'val_avg_loss_top10%': 0.862137, 'val_avg_loss_cos1': 0.99307, 'val_avg_loss_entropy': 2.072386, 'val_accuracy_std': 0.160188, 'val_accuracy_bottom_decile': 0.222222, 'val_accuracy_top_decile': 0.67109, 'val_accuracy_min': 0.222222, 'val_accuracy_max': 0.67109, 'val_accuracy_bottom10%': nan, 'val_accuracy_top10%': 0.67109, 'val_accuracy_cos1': 0.948631, 'val_accuracy_entropy': 2.021176}}
+2025-10-14 22:35:15,951 (server:344) INFO: Server: Starting evaluation at the end of round 9.
+2025-10-14 22:35:15,960 (server:350) INFO: ----------- Starting a new training round (Round #10) -------------
+2025-10-14 22:35:15,982 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:35:16,001 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:35:16,001 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:35:25,543 (client:554) INFO: {'Role': 'Client #1', 'Round': 9, 'Results_raw': {'val_loss': 379.341797, 'val_total': 326, 'val_avg_loss': 1.163625, 'val_accuracy': 0.128834}}
+2025-10-14 22:35:25,576 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:35:25,602 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:35:25,602 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:35:58,609 (client:554) INFO: {'Role': 'Client #2', 'Round': 9, 'Results_raw': {'val_loss': 997.236328, 'val_total': 1230, 'val_avg_loss': 0.810761, 'val_accuracy': 0.489431}}
+2025-10-14 22:35:58,635 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:35:58,659 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:35:58,660 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:36:27,380 (client:554) INFO: {'Role': 'Client #3', 'Round': 9, 'Results_raw': {'val_loss': 478.005859, 'val_total': 1055, 'val_avg_loss': 0.453086, 'val_accuracy': 0.890995}}
+2025-10-14 22:36:27,409 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:36:27,433 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:36:27,433 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:36:48,998 (client:554) INFO: {'Role': 'Client #4', 'Round': 9, 'Results_raw': {'val_loss': 744.796875, 'val_total': 776, 'val_avg_loss': 0.95979, 'val_accuracy': 0.320876}}
+2025-10-14 22:36:49,029 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:36:49,054 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:36:49,054 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:36:50,533 (client:554) INFO: {'Role': 'Client #5', 'Round': 9, 'Results_raw': {'val_loss': 9.581055, 'val_total': 9, 'val_avg_loss': 1.064562, 'val_accuracy': 0.111111}}
+2025-10-14 22:36:50,568 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:36:50,594 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:36:50,595 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:37:30,638 (client:554) INFO: {'Role': 'Client #6', 'Round': 9, 'Results_raw': {'val_loss': 1471.494141, 'val_total': 1455, 'val_avg_loss': 1.011336, 'val_accuracy': 0.265292}}
+2025-10-14 22:37:30,666 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:37:30,690 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:37:30,690 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:37:41,404 (client:554) INFO: {'Role': 'Client #7', 'Round': 9, 'Results_raw': {'val_loss': 162.743408, 'val_total': 309, 'val_avg_loss': 0.526678, 'val_accuracy': 0.81877}}
+2025-10-14 22:37:41,437 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:37:41,463 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:37:41,463 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:37:50,699 (client:554) INFO: {'Role': 'Client #8', 'Round': 9, 'Results_raw': {'val_loss': 130.86377, 'val_total': 303, 'val_avg_loss': 0.431894, 'val_accuracy': 0.914191}}
+2025-10-14 22:37:56,724 (client:357) INFO: {'Role': 'Client #7', 'Round': 10, 'Results_raw': {'train_loss': 68.648438, 'train_total': 80, 'train_avg_loss': 0.858105, 'train_accuracy': 0.375}}
+2025-10-14 22:38:02,728 (client:357) INFO: {'Role': 'Client #1', 'Round': 10, 'Results_raw': {'train_loss': 50.832031, 'train_total': 80, 'train_avg_loss': 0.6354, 'train_accuracy': 0.725}}
+2025-10-14 22:38:08,716 (client:357) INFO: {'Role': 'Client #5', 'Round': 10, 'Results_raw': {'train_loss': 64.398438, 'train_total': 80, 'train_avg_loss': 0.80498, 'train_accuracy': 0.3125}}
+2025-10-14 22:38:15,153 (client:357) INFO: {'Role': 'Client #6', 'Round': 10, 'Results_raw': {'train_loss': 48.9375, 'train_total': 80, 'train_avg_loss': 0.611719, 'train_accuracy': 0.6125}}
+2025-10-14 22:38:21,143 (client:357) INFO: {'Role': 'Client #4', 'Round': 10, 'Results_raw': {'train_loss': 49.886719, 'train_total': 80, 'train_avg_loss': 0.623584, 'train_accuracy': 0.7}}
+2025-10-14 22:40:07,134 (client:357) INFO: {'Role': 'Client #8', 'Round': 10, 'Results_raw': {'train_loss': 45.056641, 'train_total': 80, 'train_avg_loss': 0.563208, 'train_accuracy': 0.725}}
+2025-10-14 22:41:53,057 (client:357) INFO: {'Role': 'Client #2', 'Round': 10, 'Results_raw': {'train_loss': 28.241211, 'train_total': 80, 'train_avg_loss': 0.353015, 'train_accuracy': 0.9625}}
+2025-10-14 22:43:39,047 (client:357) INFO: {'Role': 'Client #3', 'Round': 10, 'Results_raw': {'train_loss': 61.724609, 'train_total': 80, 'train_avg_loss': 0.771558, 'train_accuracy': 0.6}}
+2025-10-14 22:43:39,051 (server:616) INFO: {'Role': 'Server #', 'Round': 9, 'Results_weighted_avg': {'val_loss': 853.665441, 'val_total': 682.875, 'val_avg_loss': 0.800671, 'val_accuracy': 0.503386}, 'Results_avg': {'val_loss': 546.757904, 'val_total': 682.875, 'val_avg_loss': 0.802716, 'val_accuracy': 0.492438}, 'Results_fairness': {'val_total': 682.875, 'val_loss_std': 466.239796, 'val_loss_bottom_decile': 9.581055, 'val_loss_top_decile': 1471.494141, 'val_loss_min': 9.581055, 'val_loss_max': 1471.494141, 'val_loss_bottom10%': nan, 'val_loss_top10%': 1471.494141, 'val_loss_cos1': 0.760911, 'val_loss_entropy': 1.699847, 'val_avg_loss_std': 0.274551, 'val_avg_loss_bottom_decile': 0.431894, 'val_avg_loss_top_decile': 1.163625, 'val_avg_loss_min': 0.431894, 'val_avg_loss_max': 1.163625, 'val_avg_loss_bottom10%': nan, 'val_avg_loss_top10%': 1.163625, 'val_avg_loss_cos1': 0.946187, 'val_avg_loss_entropy': 2.017609, 'val_accuracy_std': 0.316598, 'val_accuracy_bottom_decile': 0.111111, 'val_accuracy_top_decile': 0.914191, 'val_accuracy_min': 0.111111, 'val_accuracy_max': 0.914191, 'val_accuracy_bottom10%': nan, 'val_accuracy_top10%': 0.914191, 'val_accuracy_cos1': 0.841155, 'val_accuracy_entropy': 1.859233}}
+2025-10-14 22:43:39,087 (server:344) INFO: Server: Starting evaluation at the end of round 10.
+2025-10-14 22:43:39,096 (server:350) INFO: ----------- Starting a new training round (Round #11) -------------
+2025-10-14 22:43:39,118 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:43:39,137 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:43:39,137 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:46:04,667 (client:554) INFO: {'Role': 'Client #1', 'Round': 10, 'Results_raw': {'val_loss': 402.810547, 'val_total': 326, 'val_avg_loss': 1.235615, 'val_accuracy': 0.119632}}
+2025-10-14 22:46:04,702 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:46:04,729 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:46:04,729 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:46:37,769 (client:554) INFO: {'Role': 'Client #2', 'Round': 10, 'Results_raw': {'val_loss': 1026.956055, 'val_total': 1230, 'val_avg_loss': 0.834924, 'val_accuracy': 0.493496}}
+2025-10-14 22:46:37,797 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:46:37,820 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:46:37,821 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:47:06,701 (client:554) INFO: {'Role': 'Client #3', 'Round': 10, 'Results_raw': {'val_loss': 450.921387, 'val_total': 1055, 'val_avg_loss': 0.427414, 'val_accuracy': 0.898578}}
+2025-10-14 22:47:06,729 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:47:06,754 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:47:06,754 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:47:28,245 (client:554) INFO: {'Role': 'Client #4', 'Round': 10, 'Results_raw': {'val_loss': 780.328125, 'val_total': 776, 'val_avg_loss': 1.005577, 'val_accuracy': 0.31701}}
+2025-10-14 22:47:28,275 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:47:28,299 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:47:28,299 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:47:29,857 (client:554) INFO: {'Role': 'Client #5', 'Round': 10, 'Results_raw': {'val_loss': 10.205322, 'val_total': 9, 'val_avg_loss': 1.133925, 'val_accuracy': 0.111111}}
+2025-10-14 22:47:29,892 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:47:29,918 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:47:29,918 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:48:09,600 (client:554) INFO: {'Role': 'Client #6', 'Round': 10, 'Results_raw': {'val_loss': 1550.891602, 'val_total': 1455, 'val_avg_loss': 1.065905, 'val_accuracy': 0.252921}}
+2025-10-14 22:48:09,627 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:48:09,651 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:48:09,651 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:48:19,034 (client:554) INFO: {'Role': 'Client #7', 'Round': 10, 'Results_raw': {'val_loss': 158.135986, 'val_total': 309, 'val_avg_loss': 0.511767, 'val_accuracy': 0.809061}}
+2025-10-14 22:48:19,067 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:48:19,093 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:48:19,093 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:48:28,287 (client:554) INFO: {'Role': 'Client #8', 'Round': 10, 'Results_raw': {'val_loss': 121.836182, 'val_total': 303, 'val_avg_loss': 0.4021, 'val_accuracy': 0.927393}}
+2025-10-14 22:48:34,311 (client:357) INFO: {'Role': 'Client #6', 'Round': 11, 'Results_raw': {'train_loss': 39.433594, 'train_total': 80, 'train_avg_loss': 0.49292, 'train_accuracy': 0.8375}}
+2025-10-14 22:48:40,545 (client:357) INFO: {'Role': 'Client #2', 'Round': 11, 'Results_raw': {'train_loss': 21.608398, 'train_total': 80, 'train_avg_loss': 0.270105, 'train_accuracy': 0.975}}
+2025-10-14 22:48:46,517 (client:357) INFO: {'Role': 'Client #1', 'Round': 11, 'Results_raw': {'train_loss': 44.650391, 'train_total': 80, 'train_avg_loss': 0.55813, 'train_accuracy': 0.775}}
+2025-10-14 22:48:52,518 (client:357) INFO: {'Role': 'Client #8', 'Round': 11, 'Results_raw': {'train_loss': 51.521484, 'train_total': 80, 'train_avg_loss': 0.644019, 'train_accuracy': 0.725}}
+2025-10-14 22:48:58,503 (client:357) INFO: {'Role': 'Client #4', 'Round': 11, 'Results_raw': {'train_loss': 45.824219, 'train_total': 80, 'train_avg_loss': 0.572803, 'train_accuracy': 0.7875}}
+2025-10-14 22:49:04,474 (client:357) INFO: {'Role': 'Client #5', 'Round': 11, 'Results_raw': {'train_loss': 81.402344, 'train_total': 80, 'train_avg_loss': 1.017529, 'train_accuracy': 0.25}}
+2025-10-14 22:49:11,061 (client:357) INFO: {'Role': 'Client #7', 'Round': 11, 'Results_raw': {'train_loss': 64.597656, 'train_total': 80, 'train_avg_loss': 0.807471, 'train_accuracy': 0.375}}
+2025-10-14 22:49:17,044 (client:357) INFO: {'Role': 'Client #3', 'Round': 11, 'Results_raw': {'train_loss': 58.09375, 'train_total': 80, 'train_avg_loss': 0.726172, 'train_accuracy': 0.5125}}
+2025-10-14 22:49:17,048 (server:616) INFO: {'Role': 'Server #', 'Round': 10, 'Results_weighted_avg': {'val_loss': 881.960166, 'val_total': 682.875, 'val_avg_loss': 0.824105, 'val_accuracy': 0.501556}, 'Results_avg': {'val_loss': 562.760651, 'val_total': 682.875, 'val_avg_loss': 0.827153, 'val_accuracy': 0.49115}, 'Results_fairness': {'val_total': 682.875, 'val_loss_std': 492.539429, 'val_loss_bottom_decile': 10.205322, 'val_loss_top_decile': 1550.891602, 'val_loss_min': 10.205322, 'val_loss_max': 1550.891602, 'val_loss_bottom10%': nan, 'val_loss_top10%': 1550.891602, 'val_loss_cos1': 0.752495, 'val_loss_entropy': 1.683566, 'val_avg_loss_std': 0.314201, 'val_avg_loss_bottom_decile': 0.4021, 'val_avg_loss_top_decile': 1.235615, 'val_avg_loss_min': 0.4021, 'val_avg_loss_max': 1.235615, 'val_avg_loss_bottom10%': nan, 'val_avg_loss_top10%': 1.235615, 'val_avg_loss_cos1': 0.934828, 'val_avg_loss_entropy': 2.002342, 'val_accuracy_std': 0.321503, 'val_accuracy_bottom_decile': 0.111111, 'val_accuracy_top_decile': 0.927393, 'val_accuracy_min': 0.111111, 'val_accuracy_max': 0.927393, 'val_accuracy_bottom10%': nan, 'val_accuracy_top10%': 0.927393, 'val_accuracy_cos1': 0.836684, 'val_accuracy_entropy': 1.850972}}
+2025-10-14 22:49:17,081 (server:361) INFO: Server: Training is finished! Starting evaluation.
+2025-10-14 22:49:17,103 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:49:17,122 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:49:17,122 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:49:26,922 (client:554) INFO: {'Role': 'Client #1', 'Round': 11, 'Results_raw': {'val_loss': 265.109375, 'val_total': 326, 'val_avg_loss': 0.813219, 'val_accuracy': 0.371166}}
+2025-10-14 22:49:26,955 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:49:26,981 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:49:26,981 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:50:00,706 (client:554) INFO: {'Role': 'Client #2', 'Round': 11, 'Results_raw': {'val_loss': 901.879883, 'val_total': 1230, 'val_avg_loss': 0.733236, 'val_accuracy': 0.480488}}
+2025-10-14 22:50:00,734 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:50:00,758 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:50:00,759 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:50:29,916 (client:554) INFO: {'Role': 'Client #3', 'Round': 11, 'Results_raw': {'val_loss': 693.109863, 'val_total': 1055, 'val_avg_loss': 0.656976, 'val_accuracy': 0.596209}}
+2025-10-14 22:50:29,945 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:50:29,968 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:50:29,968 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:50:51,785 (client:554) INFO: {'Role': 'Client #4', 'Round': 11, 'Results_raw': {'val_loss': 588.710938, 'val_total': 776, 'val_avg_loss': 0.758648, 'val_accuracy': 0.463918}}
+2025-10-14 22:50:51,816 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:50:51,842 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:50:51,842 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:50:53,340 (client:554) INFO: {'Role': 'Client #5', 'Round': 11, 'Results_raw': {'val_loss': 6.551758, 'val_total': 9, 'val_avg_loss': 0.727973, 'val_accuracy': 0.666667}}
+2025-10-14 22:50:53,375 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:50:53,401 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:50:53,401 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:51:33,518 (client:554) INFO: {'Role': 'Client #6', 'Round': 11, 'Results_raw': {'val_loss': 1108.286133, 'val_total': 1455, 'val_avg_loss': 0.761709, 'val_accuracy': 0.431615}}
+2025-10-14 22:51:33,545 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:51:33,568 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:51:33,568 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:51:43,306 (client:554) INFO: {'Role': 'Client #7', 'Round': 11, 'Results_raw': {'val_loss': 207.634766, 'val_total': 309, 'val_avg_loss': 0.671957, 'val_accuracy': 0.592233}}
+2025-10-14 22:51:43,339 (context:296) WARNING: No test_data or test_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2025-10-14 22:51:43,365 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:51:43,365 (context:226) WARNING: cur_mode `test` mismatch mode `val`, will use `val` to calculate `ctx.var`.
+2025-10-14 22:51:52,654 (client:554) INFO: {'Role': 'Client #8', 'Round': 11, 'Results_raw': {'val_loss': 199.566406, 'val_total': 303, 'val_avg_loss': 0.658635, 'val_accuracy': 0.59736}}
+2025-10-14 22:51:52,659 (server:616) INFO: {'Role': 'Server #', 'Round': 11, 'Results_weighted_avg': {'val_loss': 754.356866, 'val_total': 682.875, 'val_avg_loss': 0.726862, 'val_accuracy': 0.494051}, 'Results_avg': {'val_loss': 496.35614, 'val_total': 682.875, 'val_avg_loss': 0.722794, 'val_accuracy': 0.524957}, 'Results_fairness': {'val_total': 682.875, 'val_loss_std': 362.4529, 'val_loss_bottom_decile': 6.551758, 'val_loss_top_decile': 1108.286133, 'val_loss_min': 6.551758, 'val_loss_max': 1108.286133, 'val_loss_bottom10%': nan, 'val_loss_top10%': 1108.286133, 'val_loss_cos1': 0.807599, 'val_loss_entropy': 1.776401, 'val_avg_loss_std': 0.052613, 'val_avg_loss_bottom_decile': 0.656976, 'val_avg_loss_top_decile': 0.813219, 'val_avg_loss_min': 0.656976, 'val_avg_loss_max': 0.813219, 'val_avg_loss_bottom10%': nan, 'val_avg_loss_top10%': 0.813219, 'val_avg_loss_cos1': 0.997361, 'val_avg_loss_entropy': 2.076797, 'val_accuracy_std': 0.095521, 'val_accuracy_bottom_decile': 0.371166, 'val_accuracy_top_decile': 0.666667, 'val_accuracy_min': 0.371166, 'val_accuracy_max': 0.666667, 'val_accuracy_bottom10%': nan, 'val_accuracy_top10%': 0.666667, 'val_accuracy_cos1': 0.983845, 'val_accuracy_entropy': 2.062596}}
+2025-10-14 22:51:52,663 (server:419) INFO: Server: Final evaluation is finished! Starting merging results.
+2025-10-14 22:51:52,684 (server:547) INFO: {'Role': 'Server #', 'Round': 'Final', 'Results_raw': {'client_best_individual': {'val_accuracy': 0.940594, 'val_loss': 11.415771, 'val_total': 9.0, 'val_avg_loss': 0.356375}, 'client_summarized_weighted_avg': {'val_accuracy': 0.504851, 'val_loss': 941.406555, 'val_total': 682.875, 'val_avg_loss': 0.874531}, 'client_summarized_avg': {'val_accuracy': 0.524957, 'val_loss': 496.35614, 'val_total': 682.875, 'val_avg_loss': 0.722794}, 'client_summarized_fairness': {'val_accuracy_entropy': 2.062596, 'val_accuracy_cos1': 0.983845, 'val_accuracy_top10%': 0.666667, 'val_accuracy_bottom10%': nan, 'val_accuracy_max': 0.666667, 'val_accuracy_min': 0.371166, 'val_accuracy_top_decile': 0.666667, 'val_accuracy_bottom_decile': 0.371166, 'val_accuracy_std': 0.095521, 'val_total': 682.875, 'val_loss_std': 362.4529, 'val_loss_bottom_decile': 6.551758, 'val_loss_top_decile': 1108.286133, 'val_loss_min': 6.551758, 'val_loss_max': 1108.286133, 'val_loss_bottom10%': nan, 'val_loss_top10%': 1108.286133, 'val_loss_cos1': 0.807599, 'val_loss_entropy': 1.776401, 'val_avg_loss_std': 0.052613, 'val_avg_loss_bottom_decile': 0.656976, 'val_avg_loss_top_decile': 0.813219, 'val_avg_loss_min': 0.656976, 'val_avg_loss_max': 0.813219, 'val_avg_loss_bottom10%': nan, 'val_avg_loss_top10%': 0.813219, 'val_avg_loss_cos1': 0.997361, 'val_avg_loss_entropy': 2.076797}}}
+2025-10-14 22:51:52,686 (server:566) INFO: {'Role': 'Client #1', 'Round': 12, 'Results_raw': {'val_loss': 265.109375, 'val_total': 326, 'val_avg_loss': 0.813219, 'val_accuracy': 0.371166}}
+2025-10-14 22:51:52,686 (server:566) INFO: {'Role': 'Client #2', 'Round': 12, 'Results_raw': {'val_loss': 901.879883, 'val_total': 1230, 'val_avg_loss': 0.733236, 'val_accuracy': 0.480488}}
+2025-10-14 22:51:52,686 (server:566) INFO: {'Role': 'Client #3', 'Round': 12, 'Results_raw': {'val_loss': 693.109863, 'val_total': 1055, 'val_avg_loss': 0.656976, 'val_accuracy': 0.596209}}
+2025-10-14 22:51:52,687 (server:566) INFO: {'Role': 'Client #4', 'Round': 12, 'Results_raw': {'val_loss': 588.710938, 'val_total': 776, 'val_avg_loss': 0.758648, 'val_accuracy': 0.463918}}
+2025-10-14 22:51:52,687 (server:566) INFO: {'Role': 'Client #5', 'Round': 12, 'Results_raw': {'val_loss': 6.551758, 'val_total': 9, 'val_avg_loss': 0.727973, 'val_accuracy': 0.666667}}
+2025-10-14 22:51:52,687 (server:566) INFO: {'Role': 'Client #6', 'Round': 12, 'Results_raw': {'val_loss': 1108.286133, 'val_total': 1455, 'val_avg_loss': 0.761709, 'val_accuracy': 0.431615}}
+2025-10-14 22:51:52,688 (server:566) INFO: {'Role': 'Client #7', 'Round': 12, 'Results_raw': {'val_loss': 207.634766, 'val_total': 309, 'val_avg_loss': 0.671957, 'val_accuracy': 0.592233}}
+2025-10-14 22:51:52,688 (server:566) INFO: {'Role': 'Client #8', 'Round': 12, 'Results_raw': {'val_loss': 199.566406, 'val_total': 303, 'val_avg_loss': 0.658635, 'val_accuracy': 0.59736}}
+2025-10-14 22:51:52,700 (monitor:173) INFO: In worker #0, the system-related metrics are: {'id': 0, 'fl_end_time_minutes': 98.675415, 'total_model_size': 0, 'total_flops': 0, 'total_upload_bytes': 0, 'total_download_bytes': 70960, 'global_convergence_round': 0, 'local_convergence_round': 0, 'global_convergence_time_minutes': 0, 'local_convergence_time_minutes': 0}
+2025-10-14 22:51:52,701 (client:588) INFO: ================= client 1 received finish message =================
+2025-10-14 22:51:52,716 (monitor:173) INFO: In worker #1, the system-related metrics are: {'id': 1, 'fl_end_time_minutes': 98.496256, 'total_model_size': 6619934976, 'total_flops': 0, 'total_upload_bytes': 0, 'total_download_bytes': 3072, 'global_convergence_round': 0, 'local_convergence_round': 0, 'global_convergence_time_minutes': 0, 'local_convergence_time_minutes': 0}
+2025-10-14 22:51:52,717 (client:588) INFO: ================= client 2 received finish message =================
+2025-10-14 22:51:52,730 (monitor:173) INFO: In worker #2, the system-related metrics are: {'id': 2, 'fl_end_time_minutes': 98.487607, 'total_model_size': 6619934976, 'total_flops': 0, 'total_upload_bytes': 0, 'total_download_bytes': 3072, 'global_convergence_round': 0, 'local_convergence_round': 0, 'global_convergence_time_minutes': 0, 'local_convergence_time_minutes': 0}
+2025-10-14 22:51:52,730 (client:588) INFO: ================= client 3 received finish message =================
+2025-10-14 22:51:52,743 (monitor:173) INFO: In worker #3, the system-related metrics are: {'id': 3, 'fl_end_time_minutes': 98.478986, 'total_model_size': 6619934976, 'total_flops': 0, 'total_upload_bytes': 0, 'total_download_bytes': 3072, 'global_convergence_round': 0, 'local_convergence_round': 0, 'global_convergence_time_minutes': 0, 'local_convergence_time_minutes': 0}
+2025-10-14 22:51:52,743 (client:588) INFO: ================= client 4 received finish message =================
+2025-10-14 22:51:52,756 (monitor:173) INFO: In worker #4, the system-related metrics are: {'id': 4, 'fl_end_time_minutes': 98.470365, 'total_model_size': 6619934976, 'total_flops': 0, 'total_upload_bytes': 0, 'total_download_bytes': 3072, 'global_convergence_round': 0, 'local_convergence_round': 0, 'global_convergence_time_minutes': 0, 'local_convergence_time_minutes': 0}
+2025-10-14 22:51:52,756 (client:588) INFO: ================= client 5 received finish message =================
+2025-10-14 22:51:52,769 (monitor:173) INFO: In worker #5, the system-related metrics are: {'id': 5, 'fl_end_time_minutes': 98.461763, 'total_model_size': 6619934976, 'total_flops': 0, 'total_upload_bytes': 0, 'total_download_bytes': 3072, 'global_convergence_round': 0, 'local_convergence_round': 0, 'global_convergence_time_minutes': 0, 'local_convergence_time_minutes': 0}
+2025-10-14 22:51:52,770 (client:588) INFO: ================= client 6 received finish message =================
+2025-10-14 22:51:52,783 (monitor:173) INFO: In worker #6, the system-related metrics are: {'id': 6, 'fl_end_time_minutes': 98.453144, 'total_model_size': 6619934976, 'total_flops': 0, 'total_upload_bytes': 0, 'total_download_bytes': 3072, 'global_convergence_round': 0, 'local_convergence_round': 0, 'global_convergence_time_minutes': 0, 'local_convergence_time_minutes': 0}
+2025-10-14 22:51:52,783 (client:588) INFO: ================= client 7 received finish message =================
+2025-10-14 22:51:52,796 (monitor:173) INFO: In worker #7, the system-related metrics are: {'id': 7, 'fl_end_time_minutes': 98.444539, 'total_model_size': 6619934976, 'total_flops': 0, 'total_upload_bytes': 0, 'total_download_bytes': 3072, 'global_convergence_round': 0, 'local_convergence_round': 0, 'global_convergence_time_minutes': 0, 'local_convergence_time_minutes': 0}
+2025-10-14 22:51:52,796 (client:588) INFO: ================= client 8 received finish message =================
+2025-10-14 22:51:52,809 (monitor:173) INFO: In worker #8, the system-related metrics are: {'id': 8, 'fl_end_time_minutes': 98.435932, 'total_model_size': 6619934976, 'total_flops': 0, 'total_upload_bytes': 0, 'total_download_bytes': 3072, 'global_convergence_round': 0, 'local_convergence_round': 0, 'global_convergence_time_minutes': 0, 'local_convergence_time_minutes': 0}
+2025-10-14 22:51:52,809 (monitor:338) INFO: We will compress the file eval_results.raw into a .gz file, and delete the old one
+2025-10-14 22:51:52,812 (monitor:246) INFO: After merging the system metrics from all works, we got avg: defaultdict(None, {'id': 'sys_avg', 'sys_avg/fl_end_time_minutes': 98.489334, 'sys_avg/total_model_size': '5.48G', 'sys_avg/total_flops': '0.0', 'sys_avg/total_upload_bytes': '0.0', 'sys_avg/total_download_bytes': '10.37K', 'sys_avg/global_convergence_round': 0.0, 'sys_avg/local_convergence_round': 0.0, 'sys_avg/global_convergence_time_minutes': 0.0, 'sys_avg/local_convergence_time_minutes': 0.0})
+2025-10-14 22:51:52,812 (monitor:249) INFO: After merging the system metrics from all works, we got std: defaultdict(None, {'id': 'sys_std', 'sys_std/fl_end_time_minutes': 0.068372, 'sys_std/total_model_size': '1.94G', 'sys_std/total_flops': '0.0', 'sys_std/total_upload_bytes': '0.0', 'sys_std/total_download_bytes': '20.84K', 'sys_std/global_convergence_round': 0.0, 'sys_std/local_convergence_round': 0.0, 'sys_std/global_convergence_time_minutes': 0.0, 'sys_std/local_convergence_time_minutes': 0.0})
