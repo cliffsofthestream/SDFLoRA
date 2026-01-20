@@ -8,10 +8,7 @@ device: 0
 
 # 模型配置
 model:
-  # 基础模型路径
   base_model_path: '/home/szk_25/FederatedLLM/llama-7b'
-  # 适配器权重路径（训练好的双模块LoRA权重）
-  # 请将此目录改为实际的单个实验子目录，路径不应包含重复的绝对路径片段
   adapter_path: '/home/szk_25/FedSA-LoRA-Dual/exp/dual-lora_/sub_exp_20251012235324'
 
 # 双模块LoRA配置
