@@ -5,14 +5,14 @@ import sys
 import os
 import yaml
 import torch
-sys.path.append('/home/szk_25/FedSA-LoRA')
-sys.path.append('/home/szk_25/FedSA-LoRA-Dual')
+sys.path.append('/home/user/FedSA-LoRA')
+sys.path.append('/home/user/FedSA-LoRA-Dual')
 
 from federatedscope.core.configs.config import CN
 from federatedscope.core.cmd_args import parse_args
 from code.dual_lora_model_builder import get_dual_lora_llm
 
-def verify_config_and_model(config_path='/home/szk_25/FedSA-LoRA-Dual/dual_lora_config.yaml'):
+def verify_config_and_model(config_path='/home/user/FedSA-LoRA-Dual/dual_lora_config.yaml'):
     """验证配置和模型是否正确设置"""
     print("=" * 60)
     print("验证配置和模型设置")

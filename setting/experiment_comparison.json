@@ -1,7 +1,7 @@
 {
   "experiment_info": {
-    "exp1_path": "/home/szk_25/FedSA-LoRA-Dual/exp/dual-lora_/home/szk_25/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251007193207",
-    "exp2_path": "/home/szk_25/FedSA-LoRA-Dual/exp/dual-lora_/home/szk_25/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251007214112",
+    "exp1_path": "/home/user/FedSA-LoRA-Dual/exp/dual-lora_/home/user/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251007193207",
+    "exp2_path": "/home/user/FedSA-LoRA-Dual/exp/dual-lora_/home/user/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251007214112",
     "exp1_rounds": 10,
     "exp2_rounds": 10
   },

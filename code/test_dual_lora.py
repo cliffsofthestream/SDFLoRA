@@ -6,7 +6,7 @@ import os
 from pathlib import Path
 
 # 添加项目路径
-CURRENT_PROJECT_PATH = "/home/szk_25/FedSA-LoRA-Dual"
+CURRENT_PROJECT_PATH = "/home/user/FedSA-LoRA-Dual"
 if CURRENT_PROJECT_PATH not in sys.path:
     sys.path.insert(0, CURRENT_PROJECT_PATH)
 

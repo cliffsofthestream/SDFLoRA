@@ -8,8 +8,8 @@ device: 0
 
 # 模型配置
 model:
-  base_model_path: '/home/szk_25/FederatedLLM/llama-7b'
-  adapter_path: '/home/szk_25/FedSA-LoRA-Dual/exp/dual-lora_/sub_exp_20251012235324'
+  base_model_path: '/home/user/FederatedLLM/llama-7b'
+  adapter_path: '/home/user/FedSA-LoRA-Dual/exp/dual-lora_/sub_exp_20251012235324'
 
 # 双模块LoRA配置
 llm:
@@ -123,7 +123,7 @@ evaluation:
   num_beams: 1
   
   # 输出配置
-  output_dir: '/home/szk_25/FedSA-LoRA-Dual/mmlu_evaluation_results'
+  output_dir: '/home/user/FedSA-LoRA-Dual/mmlu_evaluation_results'
   save_detailed_results: True
   save_per_task_results: True
   save_per_class_results: True
@@ -131,9 +131,9 @@ evaluation:
 # 数据配置
 data:
   # MMLU测试数据路径
-  test_data_path: '/home/szk_25/FederatedLLM/mmlu_test_1444.jsonl'
+  test_data_path: '/home/user/FederatedLLM/mmlu_test_1444.jsonl'
   # 如果使用完整MMLU数据集
-  full_test_data_path: '/home/szk_25/FederatedLLM/mmlu_test_14042.jsonl'
+  full_test_data_path: '/home/user/FederatedLLM/mmlu_test_14042.jsonl'
   
   # 数据预处理
   preprocessing:
@@ -155,7 +155,7 @@ metrics:
 # 日志配置
 logging:
   level: 'INFO'
-  log_file: '/home/szk_25/FedSA-LoRA-Dual/mmlu_evaluation.log'
+  log_file: '/home/user/FedSA-LoRA-Dual/mmlu_evaluation.log'
   log_every_n_steps: 100
   verbose: False
 

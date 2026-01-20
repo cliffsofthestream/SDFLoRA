@@ -1,25 +1,25 @@
-2025-10-13 13:00:19,417 - INFO - Loading model from /home/szk_25/FedSA-LoRA-Dual/exp/dual-lora_/home/szk_25/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251012235324
-2025-10-13 13:02:01,890 - INFO - Loading base model from /home/szk_25/FederatedLLM/llama-7b
-2025-10-13 13:02:02,023 - INFO - Loading adapter from /home/szk_25/FedSA-LoRA-Dual/exp/dual-lora_/home/szk_25/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251012235324
+2025-10-13 13:00:19,417 - INFO - Loading model from /home/user/FedSA-LoRA-Dual/exp/dual-lora_/home/user/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251012235324
+2025-10-13 13:02:01,890 - INFO - Loading base model from /home/user/FederatedLLM/llama-7b
+2025-10-13 13:02:02,023 - INFO - Loading adapter from /home/user/FedSA-LoRA-Dual/exp/dual-lora_/home/user/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251012235324
 2025-10-13 13:02:04,390 - ERROR - Failed to load dual LoRA model: name 'checkpoint_path' is not defined
 2025-10-13 13:02:04,390 - INFO - Falling back to standard model loading
-2025-10-13 13:02:50,564 - INFO - Loading base model from /home/szk_25/FederatedLLM/llama-7b
-2025-10-13 13:02:50,682 - INFO - Loading adapter from /home/szk_25/FedSA-LoRA-Dual/exp/dual-lora_/home/szk_25/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251012235324
+2025-10-13 13:02:50,564 - INFO - Loading base model from /home/user/FederatedLLM/llama-7b
+2025-10-13 13:02:50,682 - INFO - Loading adapter from /home/user/FedSA-LoRA-Dual/exp/dual-lora_/home/user/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251012235324
 2025-10-13 13:02:51,210 - WARNING - Failed to load prompter: Can't read templates/alpaca.json
 2025-10-13 13:02:51,210 - INFO - Using default prompter
 2025-10-13 13:02:51,210 - INFO - Model loaded successfully
 2025-10-13 13:02:51,210 - INFO - Starting MMLU evaluation
-2025-10-13 13:02:51,210 - INFO - Loading MMLU data from /home/szk_25/FederatedLLM/mmlu_test_1444.jsonl
+2025-10-13 13:02:51,210 - INFO - Loading MMLU data from /home/user/FederatedLLM/mmlu_test_1444.jsonl
 2025-10-13 13:02:51,214 - INFO - Loaded 0 samples
-2025-10-13 13:02:51,215 - INFO - Results saved to /home/szk_25/FedSA-LoRA-Dual/mmlu_evaluation_results
+2025-10-13 13:02:51,215 - INFO - Results saved to /home/user/FedSA-LoRA-Dual/mmlu_evaluation_results
 2025-10-13 13:02:51,215 - INFO - Evaluation completed in 0.00 seconds
-2025-10-13 13:03:41,510 - INFO - Loading base model from /home/szk_25/FederatedLLM/llama-7b
-2025-10-13 13:03:41,631 - INFO - Loading adapter from /home/szk_25/FedSA-LoRA-Dual/exp/dual-lora_/home/szk_25/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251012235324
+2025-10-13 13:03:41,510 - INFO - Loading base model from /home/user/FederatedLLM/llama-7b
+2025-10-13 13:03:41,631 - INFO - Loading adapter from /home/user/FedSA-LoRA-Dual/exp/dual-lora_/home/user/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251012235324
 2025-10-13 13:03:42,144 - WARNING - Failed to load prompter: Can't read templates/alpaca.json
 2025-10-13 13:03:42,144 - INFO - Using default prompter
 2025-10-13 13:03:42,144 - INFO - Model loaded successfully
 2025-10-13 13:03:42,144 - INFO - Starting MMLU evaluation
-2025-10-13 13:03:42,144 - INFO - Loading MMLU data from /home/szk_25/FederatedLLM/mmlu_test_1444.jsonl
+2025-10-13 13:03:42,144 - INFO - Loading MMLU data from /home/user/FederatedLLM/mmlu_test_1444.jsonl
 2025-10-13 13:03:42,148 - INFO - Loaded 1444 samples
 2025-10-13 13:03:42,148 - INFO - Evaluating task: medical_genetics
 2025-10-13 13:03:42,148 - INFO - Evaluating task with 11 samples
@@ -7351,16 +7351,16 @@ CUDA kernel errors might be asynchronously reported at some other API call, so t
 For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
 Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
 
-2025-10-13 13:05:03,899 - INFO - Results saved to /home/szk_25/FedSA-LoRA-Dual/mmlu_evaluation_results
+2025-10-13 13:05:03,899 - INFO - Results saved to /home/user/FedSA-LoRA-Dual/mmlu_evaluation_results
 2025-10-13 13:05:03,899 - INFO - Evaluation completed in 81.75 seconds
-2025-10-13 14:27:53,381 - INFO - Loading base model from /home/szk_25/FedSA-LoRA-Dual/exp/dual-lora_/home/szk_25/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251012235324
-2025-10-13 14:29:45,833 - INFO - Loading base model from /home/szk_25/FederatedLLM/llama-7b
-2025-10-13 14:29:45,935 - INFO - Loading adapter from /home/szk_25/FedSA-LoRA-Dual/exp/dual-lora_/home/szk_25/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251012235324
+2025-10-13 14:27:53,381 - INFO - Loading base model from /home/user/FedSA-LoRA-Dual/exp/dual-lora_/home/user/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251012235324
+2025-10-13 14:29:45,833 - INFO - Loading base model from /home/user/FederatedLLM/llama-7b
+2025-10-13 14:29:45,935 - INFO - Loading adapter from /home/user/FedSA-LoRA-Dual/exp/dual-lora_/home/user/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251012235324
 2025-10-13 14:29:59,696 - WARNING - Failed to load prompter: Can't read templates/alpaca.json
 2025-10-13 14:29:59,696 - INFO - Using default prompter
 2025-10-13 14:29:59,696 - INFO - Model loaded successfully
 2025-10-13 14:29:59,696 - INFO - Starting MMLU evaluation
-2025-10-13 14:29:59,696 - INFO - Loading MMLU data from /home/szk_25/FederatedLLM/mmlu_test_1444.jsonl
+2025-10-13 14:29:59,696 - INFO - Loading MMLU data from /home/user/FederatedLLM/mmlu_test_1444.jsonl
 2025-10-13 14:29:59,701 - INFO - Loaded 1444 samples
 2025-10-13 14:29:59,701 - INFO - Evaluating task: medical_genetics
 2025-10-13 14:29:59,702 - INFO - Evaluating task with 11 samples
@@ -7546,23 +7546,23 @@ Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
 2025-10-13 20:25:15,761 - ERROR - Error evaluating sample: probability tensor contains either `inf`, `nan` or element < 0
 2025-10-13 20:36:35,859 - INFO - Evaluating task: professional_psychology
 2025-10-13 20:36:35,859 - INFO - Evaluating task with 62 samples
-2025-10-13 21:09:50,214 - INFO - Loading base model from /home/szk_25/FederatedLLM/llama-7b
-2025-10-13 21:09:50,312 - INFO - Loading adapter from /home/szk_25/FedSA-LoRA-Dual/exp/dual-lora_/home/szk_25/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251012235324
+2025-10-13 21:09:50,214 - INFO - Loading base model from /home/user/FederatedLLM/llama-7b
+2025-10-13 21:09:50,312 - INFO - Loading adapter from /home/user/FedSA-LoRA-Dual/exp/dual-lora_/home/user/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251012235324
 2025-10-13 21:09:53,506 - WARNING - Failed to load prompter: Can't read templates/alpaca.json
 2025-10-13 21:09:53,506 - INFO - Using default prompter
 2025-10-13 21:09:53,506 - INFO - Model loaded successfully
 2025-10-13 21:09:53,506 - INFO - Starting MMLU evaluation
-2025-10-13 21:09:53,506 - INFO - Loading MMLU data from /home/szk_25/FederatedLLM/mmlu_test_1444.jsonl
+2025-10-13 21:09:53,506 - INFO - Loading MMLU data from /home/user/FederatedLLM/mmlu_test_1444.jsonl
 2025-10-13 21:09:53,511 - INFO - Loaded 1444 samples
 2025-10-13 21:09:53,511 - INFO - Evaluating task: medical_genetics
 2025-10-13 21:09:53,511 - INFO - Evaluating task with 11 samples
-2025-10-13 21:10:53,696 - INFO - Loading base model from /home/szk_25/FederatedLLM/llama-7b
-2025-10-13 21:10:53,793 - INFO - Loading adapter from /home/szk_25/FedSA-LoRA-Dual/exp/dual-lora_/home/szk_25/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251012235324
+2025-10-13 21:10:53,696 - INFO - Loading base model from /home/user/FederatedLLM/llama-7b
+2025-10-13 21:10:53,793 - INFO - Loading adapter from /home/user/FedSA-LoRA-Dual/exp/dual-lora_/home/user/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251012235324
 2025-10-13 21:10:56,737 - WARNING - Failed to load prompter: Can't read templates/alpaca.json
 2025-10-13 21:10:56,738 - INFO - Using default prompter
 2025-10-13 21:10:56,738 - INFO - Model loaded successfully
 2025-10-13 21:10:56,738 - INFO - Starting MMLU evaluation
-2025-10-13 21:10:56,738 - INFO - Loading MMLU data from /home/szk_25/FederatedLLM/mmlu_test_1444.jsonl
+2025-10-13 21:10:56,738 - INFO - Loading MMLU data from /home/user/FederatedLLM/mmlu_test_1444.jsonl
 2025-10-13 21:10:56,742 - INFO - Loaded 56 samples
 2025-10-13 21:10:56,742 - INFO - Evaluating task: anatomy
 2025-10-13 21:10:56,742 - INFO - Evaluating task with 14 samples
@@ -7587,38 +7587,38 @@ Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
 2025-10-13 21:34:09,977 - INFO - Evaluating task: abstract_algebra
 2025-10-13 21:34:09,978 - INFO - Evaluating task with 11 samples
 2025-10-13 21:34:19,986 - ERROR - Error evaluating sample: probability tensor contains either `inf`, `nan` or element < 0
-2025-10-13 21:38:44,321 - INFO - Loading base model from /home/szk_25/FederatedLLM/llama-7b
-2025-10-13 21:38:44,418 - INFO - Loading adapter from /home/szk_25/FedSA-LoRA-Dual/exp/dual-lora_/home/szk_25/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251012235324
+2025-10-13 21:38:44,321 - INFO - Loading base model from /home/user/FederatedLLM/llama-7b
+2025-10-13 21:38:44,418 - INFO - Loading adapter from /home/user/FedSA-LoRA-Dual/exp/dual-lora_/home/user/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251012235324
 2025-10-13 21:38:47,367 - WARNING - Failed to load prompter: Can't read templates/alpaca.json
 2025-10-13 21:38:47,368 - INFO - Using default prompter
 2025-10-13 21:38:47,368 - INFO - Model loaded successfully
 2025-10-13 21:38:47,368 - INFO - Starting MMLU evaluation
-2025-10-13 21:38:47,368 - INFO - Loading MMLU data from /home/szk_25/FederatedLLM/mmlu_test_1444.jsonl
+2025-10-13 21:38:47,368 - INFO - Loading MMLU data from /home/user/FederatedLLM/mmlu_test_1444.jsonl
 2025-10-13 21:38:47,372 - INFO - Loaded 12 samples
 2025-10-13 21:38:47,372 - INFO - Evaluating task: machine_learning
 2025-10-13 21:38:47,372 - INFO - Evaluating task with 12 samples
 2025-10-13 21:52:10,512 - ERROR - Error evaluating sample: probability tensor contains either `inf`, `nan` or element < 0
-2025-10-13 21:53:30,489 - INFO - Results saved to /home/szk_25/FedSA-LoRA-Dual/mmlu_evaluation_results
+2025-10-13 21:53:30,489 - INFO - Results saved to /home/user/FedSA-LoRA-Dual/mmlu_evaluation_results
 2025-10-13 21:53:30,489 - INFO - Evaluation completed in 883.12 seconds
-2025-10-13 22:10:42,736 - INFO - Loading base model from /home/szk_25/FederatedLLM/llama-7b
-2025-10-13 22:10:42,833 - INFO - Loading adapter from /home/szk_25/FedSA-LoRA-Dual/exp/dual-lora_/home/szk_25/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251012235324
+2025-10-13 22:10:42,736 - INFO - Loading base model from /home/user/FederatedLLM/llama-7b
+2025-10-13 22:10:42,833 - INFO - Loading adapter from /home/user/FedSA-LoRA-Dual/exp/dual-lora_/home/user/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251012235324
 2025-10-13 22:10:46,131 - WARNING - Failed to load prompter: Can't read templates/alpaca.json
 2025-10-13 22:10:46,131 - INFO - Using default prompter
 2025-10-13 22:10:46,131 - INFO - Model loaded successfully
 2025-10-13 22:10:46,131 - INFO - Starting MMLU evaluation
-2025-10-13 22:10:46,131 - INFO - Loading MMLU data from /home/szk_25/FederatedLLM/mmlu_test_1444.jsonl
+2025-10-13 22:10:46,131 - INFO - Loading MMLU data from /home/user/FederatedLLM/mmlu_test_1444.jsonl
 2025-10-13 22:10:46,135 - INFO - Loaded 12 samples
 2025-10-13 22:10:46,136 - INFO - Evaluating task: machine_learning
 2025-10-13 22:10:46,136 - INFO - Evaluating task with 12 samples
-2025-10-13 22:13:47,097 - INFO - Results saved to /home/szk_25/FedSA-LoRA-Dual/mmlu_evaluation_results
+2025-10-13 22:13:47,097 - INFO - Results saved to /home/user/FedSA-LoRA-Dual/mmlu_evaluation_results
 2025-10-13 22:13:47,098 - INFO - Evaluation completed in 180.97 seconds
-2025-10-13 22:37:01,601 - INFO - Loading base model from /home/szk_25/FederatedLLM/llama-7b
+2025-10-13 22:37:01,601 - INFO - Loading base model from /home/user/FederatedLLM/llama-7b
 2025-10-13 22:37:01,697 - INFO - No adapter path or adapter not found, loading base model only
 2025-10-13 22:37:04,657 - WARNING - Failed to load prompter: Can't read templates/alpaca.json
 2025-10-13 22:37:04,657 - INFO - Using default prompter
 2025-10-13 22:37:04,657 - INFO - Model loaded successfully
 2025-10-13 22:37:04,657 - INFO - Starting MMLU evaluation
-2025-10-13 22:37:04,657 - INFO - Loading MMLU data from /home/szk_25/FederatedLLM/mmlu_test_1444.jsonl
+2025-10-13 22:37:04,657 - INFO - Loading MMLU data from /home/user/FederatedLLM/mmlu_test_1444.jsonl
 2025-10-13 22:37:04,662 - INFO - Loaded 12 samples
 2025-10-13 22:37:04,662 - INFO - Evaluating task: machine_learning
 2025-10-13 22:37:04,662 - INFO - Evaluating task with 12 samples
@@ -7643,5 +7643,5 @@ CUDA kernel errors might be asynchronously reported at some other API call, so t
 For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
 Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
 
-2025-10-13 22:39:40,444 - INFO - Results saved to /home/szk_25/FedSA-LoRA-Dual/mmlu_evaluation_results
+2025-10-13 22:39:40,444 - INFO - Results saved to /home/user/FedSA-LoRA-Dual/mmlu_evaluation_results
 2025-10-13 22:39:40,444 - INFO - Evaluation completed in 155.79 seconds

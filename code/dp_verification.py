@@ -345,7 +345,7 @@ def main():
     results = tester.run_comprehensive_test()
     
     # 保存结果
-    with open('/home/szk_25/FedSA-LoRA-Dual/dp_verification_results.json', 'w') as f:
+    with open('/home/user/FedSA-LoRA-Dual/dp_verification_results.json', 'w') as f:
         def convert_tensor(obj):
             if isinstance(obj, torch.Tensor):
                 return obj.tolist()

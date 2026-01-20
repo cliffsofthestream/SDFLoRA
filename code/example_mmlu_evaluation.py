@@ -22,9 +22,9 @@ def run_quick_evaluation():
     
     # 检查是否有可用的模型检查点
     model_paths = [
-        "/home/szk_25/FedSA-LoRA-Dual/exp/dual-lora_/home/szk_25/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251012235324",
-        "/home/szk_25/FedSA-LoRA-Dual/exp/dual-lora_/home/szk_25/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251007193207",
-        "/home/szk_25/FedSA-LoRA-Dual/exp/dual-lora_/home/szk_25/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251012231038"
+        "/home/user/FedSA-LoRA-Dual/exp/dual-lora_/home/user/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251012235324",
+        "/home/user/FedSA-LoRA-Dual/exp/dual-lora_/home/user/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251007193207",
+        "/home/user/FedSA-LoRA-Dual/exp/dual-lora_/home/user/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251012231038"
     ]
     
     available_model = None
@@ -35,7 +35,7 @@ def run_quick_evaluation():
     
     if not available_model:
         logger.warning("No trained model checkpoints found. Using base model for demonstration.")
-        available_model = "/home/szk_25/FederatedLLM/llama-7b@huggingface_llm"
+        available_model = "/home/user/FederatedLLM/llama-7b@huggingface_llm"
     
     logger.info(f"Using model: {available_model}")
     
@@ -67,7 +67,7 @@ def run_detailed_evaluation():
     logger.info("Running detailed evaluation example...")
     
     # 检查配置文件
-    config_path = "/home/szk_25/FedSA-LoRA-Dual/mmlu_evaluation_config.yaml"
+    config_path = "/home/user/FedSA-LoRA-Dual/mmlu_evaluation_config.yaml"
     if not os.path.exists(config_path):
         logger.error(f"Config file not found: {config_path}")
         return
@@ -101,7 +101,7 @@ def run_variant_comparison():
     logger.info("Running variant comparison example...")
     
     # 检查配置文件
-    config_path = "/home/szk_25/FedSA-LoRA-Dual/mmlu_evaluation_config.yaml"
+    config_path = "/home/user/FedSA-LoRA-Dual/mmlu_evaluation_config.yaml"
     if not os.path.exists(config_path):
         logger.error(f"Config file not found: {config_path}")
         return

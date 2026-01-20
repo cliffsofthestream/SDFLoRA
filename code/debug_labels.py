@@ -5,8 +5,8 @@
 
 import sys
 import os
-sys.path.append('/home/szk_25/FedSA-LoRA')
-sys.path.append('/home/szk_25/FedSA-LoRA-Dual')
+sys.path.append('/home/user/FedSA-LoRA')
+sys.path.append('/home/user/FedSA-LoRA-Dual')
 
 from federatedscope.core.configs.config import CN
 from federatedscope.glue.dataloader.dataloader import load_glue_dataset
@@ -22,7 +22,7 @@ def debug_labels():
     
     # 数据配置
     config.data = CN()
-    config.data.root = '/home/szk_25/FedSA-LoRA-Dual/GLUE'
+    config.data.root = '/home/user/FedSA-LoRA-Dual/GLUE'
     config.data.type = 'mnli@huggingface'
     config.data.matched = True
     config.data.label_list = []  # 预设置
@@ -35,7 +35,7 @@ def debug_labels():
     # LLM配置
     config.llm = CN()
     config.llm.cache = CN()
-    config.llm.cache.model = '/home/szk_25/FederatedLLM'
+    config.llm.cache.model = '/home/user/FederatedLLM'
     config.llm.tok_len = 512
     
     # 添加必要的配置

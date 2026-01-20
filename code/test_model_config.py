@@ -7,7 +7,7 @@ def test_model_config():
     """测试模型配置"""
     print("测试模型配置...")
     
-    model_path = "/home/szk_25/FederatedLLM/llama-7b"
+    model_path = "/home/user/FederatedLLM/llama-7b"
     
     try:
         # 加载分词器

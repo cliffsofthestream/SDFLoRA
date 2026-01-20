@@ -19,7 +19,7 @@ def test_simple_inference():
     
     try:
         # 加载模型和分词器
-        model_path = "/home/szk_25/FederatedLLM/llama-7b"
+        model_path = "/home/user/FederatedLLM/llama-7b"
         
         logger.info(f"Loading tokenizer from {model_path}")
         tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
@@ -100,7 +100,7 @@ def test_data_loading():
     logger.info("Testing data loading...")
     
     try:
-        data_path = "/home/szk_25/FederatedLLM/mmlu_test_1444.jsonl"
+        data_path = "/home/user/FederatedLLM/mmlu_test_1444.jsonl"
         
         with open(data_path, 'r', encoding='utf-8') as f:
             content = f.read().strip()

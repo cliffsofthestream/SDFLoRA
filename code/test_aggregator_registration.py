@@ -3,11 +3,11 @@ import sys
 import os
 
 # 添加路径
-ORIGINAL_PROJECT_PATH = "/home/szk_25/FedSA-LoRA"
+ORIGINAL_PROJECT_PATH = "/home/user/FedSA-LoRA"
 if ORIGINAL_PROJECT_PATH not in sys.path:
     sys.path.insert(0, ORIGINAL_PROJECT_PATH)
 
-CURRENT_PROJECT_PATH = "/home/szk_25/FedSA-LoRA-Dual"
+CURRENT_PROJECT_PATH = "/home/user/FedSA-LoRA-Dual"
 if CURRENT_PROJECT_PATH not in sys.path:
     sys.path.insert(0, CURRENT_PROJECT_PATH)
 

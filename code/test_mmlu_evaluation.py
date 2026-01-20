@@ -11,8 +11,8 @@ import logging
 from pathlib import Path
 
 # 添加项目路径
-CURRENT_PROJECT_PATH = "/home/szk_25/FedSA-LoRA-Dual"
-FEDERATEDLLM_PATH = "/home/szk_25/FederatedLLM"
+CURRENT_PROJECT_PATH = "/home/user/FedSA-LoRA-Dual"
+FEDERATEDLLM_PATH = "/home/user/FederatedLLM"
 if CURRENT_PROJECT_PATH not in sys.path:
     sys.path.insert(0, CURRENT_PROJECT_PATH)
 if FEDERATEDLLM_PATH not in sys.path:
@@ -26,7 +26,7 @@ def test_config_loading():
     """测试配置文件加载"""
     logger.info("Testing config loading...")
     
-    config_path = "/home/szk_25/FedSA-LoRA-Dual/mmlu_evaluation_config.yaml"
+    config_path = "/home/user/FedSA-LoRA-Dual/mmlu_evaluation_config.yaml"
     if not os.path.exists(config_path):
         logger.error(f"Config file not found: {config_path}")
         return False
@@ -50,7 +50,7 @@ def test_data_loading():
     """测试数据加载"""
     logger.info("Testing data loading...")
     
-    data_path = "/home/szk_25/FederatedLLM/mmlu_test_1444.jsonl"
+    data_path = "/home/user/FederatedLLM/mmlu_test_1444.jsonl"
     if not os.path.exists(data_path):
         logger.error(f"Data file not found: {data_path}")
         return False
@@ -81,7 +81,7 @@ def test_model_path():
     """测试模型路径"""
     logger.info("Testing model path...")
     
-    model_path = "/home/szk_25/FedSA-LoRA-Dual/exp/dual-lora_/home/szk_25/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251012235324"
+    model_path = "/home/user/FedSA-LoRA-Dual/exp/dual-lora_/home/user/FederatedLLM/llama-7b@huggingface_llm_on_sst2@glue_lr0.0002_lstep10/sub_exp_20251012235324"
     
     if not os.path.exists(model_path):
         logger.warning(f"Model path does not exist: {model_path}")
@@ -130,7 +130,7 @@ def test_quick_evaluation():
     logger.info("Testing quick evaluation...")
     
     # 检查快速评估脚本是否存在
-    script_path = "/home/szk_25/FedSA-LoRA-Dual/quick_mmlu_eval.py"
+    script_path = "/home/user/FedSA-LoRA-Dual/quick_mmlu_eval.py"
     if not os.path.exists(script_path):
         logger.error(f"Quick evaluation script not found: {script_path}")
         return False
@@ -142,7 +142,7 @@ def test_output_directory():
     """测试输出目录创建"""
     logger.info("Testing output directory creation...")
     
-    output_dir = "/home/szk_25/FedSA-LoRA-Dual/mmlu_evaluation_results"
+    output_dir = "/home/user/FedSA-LoRA-Dual/mmlu_evaluation_results"
     
     try:
         os.makedirs(output_dir, exist_ok=True)
@@ -209,7 +209,7 @@ def main():
     results = run_all_tests()
     
     # 保存测试结果
-    results_file = "/home/szk_25/FedSA-LoRA-Dual/test_results.json"
+    results_file = "/home/user/FedSA-LoRA-Dual/test_results.json"
     with open(results_file, 'w') as f:
         json.dump(results, f, indent=2)
     

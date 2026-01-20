@@ -12,7 +12,7 @@ def test_model_output_quality():
     
     try:
         # 加载模型和分词器
-        model_path = "/home/szk_25/FederatedLLM/llama-7b"
+        model_path = "/home/user/FederatedLLM/llama-7b"
         
         logger.info(f"Loading tokenizer from {model_path}")
         tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)

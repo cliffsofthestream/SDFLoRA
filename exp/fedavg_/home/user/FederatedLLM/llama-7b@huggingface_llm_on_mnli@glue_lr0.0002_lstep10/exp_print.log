@@ -1,6 +1,6 @@
 2025-10-26 23:16:55,064 (logging:132) INFO: the current machine is at 127.0.1.1
-2025-10-26 23:16:55,064 (logging:134) INFO: the current dir is /home/szk_25/FedSA-LoRA-Dual
-2025-10-26 23:16:55,064 (logging:135) INFO: the output dir is exp/fedavg_/home/szk_25/FederatedLLM/llama-7b@huggingface_llm_on_mnli@glue_lr0.0002_lstep10
+2025-10-26 23:16:55,064 (logging:134) INFO: the current dir is /home/user/FedSA-LoRA-Dual
+2025-10-26 23:16:55,064 (logging:135) INFO: the output dir is exp/fedavg_/home/user/FederatedLLM/llama-7b@huggingface_llm_on_mnli@glue_lr0.0002_lstep10
 2025-10-26 23:22:30,413 (base_translator:120) WARNING: Cannot access train label distribution for splitter, split dataset without considering train label.
 2025-10-26 23:22:34,896 (config:243) INFO: the used configs are: 
 adapter:
@@ -113,7 +113,7 @@ data:
     dim: 1
     max_curv: 12.5
     min_curv: 0.02
-  root: /home/szk_25/FedSA-LoRA-Dual/GLUE
+  root: /home/user/FedSA-LoRA-Dual/GLUE
   save_data: False
   server_holds_all: False
   shuffle: True
@@ -172,7 +172,7 @@ eval:
   report: ['weighted_avg', 'avg', 'fairness', 'raw']
   split: ['test', 'val']
 eval_device: -1
-expname: fedavg_/home/szk_25/FederatedLLM/llama-7b@huggingface_llm_on_mnli@glue_lr0.0002_lstep10
+expname: fedavg_/home/user/FederatedLLM/llama-7b@huggingface_llm_on_mnli@glue_lr0.0002_lstep10
 expname_tag: 
 feat_engr:
   num_bins: 5
@@ -389,12 +389,12 @@ model:
   pretrain_tasks: []
   stage: 
   task: node
-  type: /home/szk_25/FederatedLLM/llama-7b@huggingface_llm
+  type: /home/user/FederatedLLM/llama-7b@huggingface_llm
   use_bias: True
   use_contrastive_loss: False
 nbafl:
   use: False
-outdir: exp/fedavg_/home/szk_25/FederatedLLM/llama-7b@huggingface_llm_on_mnli@glue_lr0.0002_lstep10
+outdir: exp/fedavg_/home/user/FederatedLLM/llama-7b@huggingface_llm_on_mnli@glue_lr0.0002_lstep10
 personalization:
   K: 5
   beta: 1.0

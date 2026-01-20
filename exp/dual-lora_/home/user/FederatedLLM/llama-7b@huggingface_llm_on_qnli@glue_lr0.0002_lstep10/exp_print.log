@@ -1,3 +1,3 @@
 2025-10-03 16:54:24,892 (logging:132) INFO: the current machine is at 127.0.1.1
-2025-10-03 16:54:24,892 (logging:134) INFO: the current dir is /home/szk_25/FedSA-LoRA-Dual
-2025-10-03 16:54:24,892 (logging:135) INFO: the output dir is exp/dual-lora_/home/szk_25/FederatedLLM/llama-7b@huggingface_llm_on_qnli@glue_lr0.0002_lstep10
+2025-10-03 16:54:24,892 (logging:134) INFO: the current dir is /home/user/FedSA-LoRA-Dual
+2025-10-03 16:54:24,892 (logging:135) INFO: the output dir is exp/dual-lora_/home/user/FederatedLLM/llama-7b@huggingface_llm_on_qnli@glue_lr0.0002_lstep10

@@ -10,8 +10,8 @@ import logging
 from pathlib import Path
 
 # 添加项目路径
-CURRENT_PROJECT_PATH = "/home/szk_25/FedSA-LoRA-Dual"
-FEDERATEDLLM_PATH = "/home/szk_25/FederatedLLM"
+CURRENT_PROJECT_PATH = "/home/user/FedSA-LoRA-Dual"
+FEDERATEDLLM_PATH = "/home/user/FederatedLLM"
 if CURRENT_PROJECT_PATH not in sys.path:
     sys.path.insert(0, CURRENT_PROJECT_PATH)
 if FEDERATEDLLM_PATH not in sys.path:
@@ -33,7 +33,7 @@ def load_dual_lora_model(model_path: str):
     
     # 加载分词器
     tokenizer = AutoTokenizer.from_pretrained(
-        "/home/szk_25/FederatedLLM/llama-7b@huggingface_llm",
+        "/home/user/FederatedLLM/llama-7b@huggingface_llm",
         trust_remote_code=True
     )
     if tokenizer.pad_token is None:
@@ -41,7 +41,7 @@ def load_dual_lora_model(model_path: str):
     
     # 加载基础模型
     model = AutoModelForCausalLM.from_pretrained(
-        "/home/szk_25/FederatedLLM/llama-7b@huggingface_llm",
+        "/home/user/FederatedLLM/llama-7b@huggingface_llm",
         torch_dtype=torch.float16,
         device_map="auto",
         trust_remote_code=True
@@ -63,7 +63,7 @@ def main():
     parser = argparse.ArgumentParser(description='Quick MMLU Evaluation')
     parser.add_argument('--model_path', type=str, required=True, help='Path to model checkpoint')
     parser.add_argument('--data_path', type=str, 
-                       default='/home/szk_25/FederatedLLM/mmlu_test_1444.jsonl',
+                       default='/home/user/FederatedLLM/mmlu_test_1444.jsonl',
                        help='Path to MMLU test data')
     parser.add_argument('--output_dir', type=str, default='./quick_mmlu_results',
                        help='Output directory for results')

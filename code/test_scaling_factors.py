@@ -60,7 +60,7 @@ def create_config_with_scaling_factor(scaling_factor: float, use_fixed_scaling: 
         },
         
         'data': {
-            'root': '/home/szk_25/FedSA-LoRA-Dual/GLUE',
+            'root': '/home/user/FedSA-LoRA-Dual/GLUE',
             'type': 'mnli@glue',
             'matched': True,
             'splitter': 'lda',
@@ -86,7 +86,7 @@ def create_config_with_scaling_factor(scaling_factor: float, use_fixed_scaling: 
         },
         
         'dataloader': {'batch_size': 8},
-        'model': {'type': '/home/szk_25/FederatedLLM/llama-7b@huggingface_llm'},
+        'model': {'type': '/home/user/FederatedLLM/llama-7b@huggingface_llm'},
         'train': {
             'local_update_steps': 10,
             'batch_or_epoch': 'batch',

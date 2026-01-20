@@ -21,7 +21,7 @@
   },
   "evaluation_time": "2025-10-13T22:39:40.443294",
   "config": {
-    "model_path": "/home/szk_25/FederatedLLM/llama-7b",
+    "model_path": "/home/user/FederatedLLM/llama-7b",
     "tasks": [
       "machine_learning"
     ],

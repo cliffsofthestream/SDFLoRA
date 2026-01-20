@@ -15,8 +15,8 @@ def simulate_training_step():
     
     try:
         # 导入必要的模块
-        sys.path.append('/home/szk_25/FedSA-LoRA-Dual')
-        sys.path.append('/home/szk_25/FedSA-LoRA')
+        sys.path.append('/home/user/FedSA-LoRA-Dual')
+        sys.path.append('/home/user/FedSA-LoRA')
         
         from code.dual_lora_model_builder import get_dual_lora_llm
         from federatedscope.core.configs.config import CN
@@ -25,15 +25,15 @@ def simulate_training_step():
         # 创建配置
         config = CN()
         config.model = CN()
-        config.model.type = "/home/szk_25/FederatedLLM/llama-7b@huggingface_llm"
+        config.model.type = "/home/user/FederatedLLM/llama-7b@huggingface_llm"
         config.data = CN()
         config.data.type = "mnli@glue"
-        config.data.root = "/home/szk_25/FedSA-LoRA-Dual/GLUE"
+        config.data.root = "/home/user/FedSA-LoRA-Dual/GLUE"
         config.data.matched = True
         config.llm = CN()
         config.llm.tok_len = 128
         config.llm.cache = CN()
-        config.llm.cache.model = "/home/szk_25/FederatedLLM/llama-7b"
+        config.llm.cache.model = "/home/user/FederatedLLM/llama-7b"
         config.llm.adapter = CN()
         config.llm.adapter.use = True
         config.llm.adapter.args = [{

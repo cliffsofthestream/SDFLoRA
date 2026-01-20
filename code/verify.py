@@ -5,7 +5,7 @@ import sys
 import os
 
 def quick_verify():
-    config_path = '/home/szk_25/FedSA-LoRA-Dual/dual_lora_config.yaml'
+    config_path = '/home/user/FedSA-LoRA-Dual/dual_lora_config.yaml'
     
     print("=" * 60)
     print("快速验证配置文件")

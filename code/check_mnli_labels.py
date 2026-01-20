@@ -50,7 +50,7 @@ def check_mnli_labels():
         print("\n检查数据加载后的格式...")
         
         # 模拟数据加载过程
-        model_name = "/home/szk_25/FederatedLLM/llama-7b"
+        model_name = "/home/user/FederatedLLM/llama-7b"
         tokenizer = AutoTokenizer.from_pretrained(model_name)
         if tokenizer.pad_token is None:
             tokenizer.pad_token = tokenizer.eos_token

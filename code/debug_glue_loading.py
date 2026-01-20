@@ -18,23 +18,23 @@ def test_glue_data_loading():
     class Config:
         def __init__(self):
             self.data = type('obj', (object,), {})()
-            self.data.root = "/home/szk_25/FedSA-LoRA-Dual/GLUE"
+            self.data.root = "/home/user/FedSA-LoRA-Dual/GLUE"
             self.data.type = "mnli@glue"
             self.data.matched = True
             self.data.num_labels = 3
             self.llm = type('obj', (object,), {})()
             self.llm.tok_len = 128
             self.llm.cache = type('obj', (object,), {})()
-            self.llm.cache.model = "/home/szk_25/FederatedLLM/llama-7b"
+            self.llm.cache.model = "/home/user/FederatedLLM/llama-7b"
             self.model = type('obj', (object,), {})()
-            self.model.type = "/home/szk_25/FederatedLLM/llama-7b@huggingface_llm"
+            self.model.type = "/home/user/FederatedLLM/llama-7b@huggingface_llm"
     
     config = Config()
     
     try:
         # 加载数据集
         task_name = "mnli"
-        model_name = "/home/szk_25/FederatedLLM/llama-7b"
+        model_name = "/home/user/FederatedLLM/llama-7b"
         
         # 尝试从本地缓存加载
         cache_path = os.path.join(config.data.root, task_name)

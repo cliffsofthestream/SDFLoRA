@@ -12,10 +12,10 @@ def setup_tsinghua_mirror():
     
     # 设置环境变量使用清华镜像
     os.environ['HF_ENDPOINT'] = 'https://hf-mirror.com'
-    os.environ['HUGGINGFACE_HUB_CACHE'] = '/home/szk_25/FedSA-LoRA/data/glue/'
+    os.environ['HUGGINGFACE_HUB_CACHE'] = '/home/user/FedSA-LoRA/data/glue/'
     
     # 设置datasets缓存目录
-    cache_dir = "/home/szk_25/FedSA-LoRA/data/glue/"
+    cache_dir = "/home/user/FedSA-LoRA/data/glue/"
     os.makedirs(cache_dir, exist_ok=True)
     
     print(f"缓存目录: {cache_dir}")
@@ -38,7 +38,7 @@ def download_mnli_with_tsinghua():
         dataset = load_dataset(
             "glue", 
             "mnli", 
-            cache_dir="/home/szk_25/FedSA-LoRA/data/glue/",
+            cache_dir="/home/user/FedSA-LoRA/data/glue/",
             download_mode="reuse_dataset_if_exists"
         )
         
@@ -48,7 +48,7 @@ def download_mnli_with_tsinghua():
         print(f"验证集(mismatched)大小: {len(dataset['validation_mismatched'])}")
         
         # 检查文件是否真的下载了
-        cache_path = Path("/home/szk_25/FedSA-LoRA/data/glue/")
+        cache_path = Path("/home/user/FedSA-LoRA/data/glue/")
         if cache_path.exists():
             print(f"缓存文件位置: {cache_path}")
             for item in cache_path.rglob("*"):
@@ -70,7 +70,7 @@ def download_mnli_with_tsinghua():
             hf_hub_download(
                 repo_id="glue",
                 filename="mnli/train.json",
-                cache_dir="/home/szk_25/FedSA-LoRA/data/glue/",
+                cache_dir="/home/user/FedSA-LoRA/data/glue/",
                 endpoint="https://hf-mirror.com"
             )
             

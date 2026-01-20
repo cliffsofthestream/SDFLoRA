@@ -76,7 +76,7 @@ dataloader:
   batch_size: 8
 
 model:
-  type: '/home/szk_25/FederatedLLM/llama-7b@huggingface_llm'
+  type: '/home/user/FederatedLLM/llama-7b@huggingface_llm'
 
 train:
   local_update_steps: 10

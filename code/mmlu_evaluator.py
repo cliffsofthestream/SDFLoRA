@@ -32,8 +32,8 @@ from transformers import (
 )
 
 # 添加项目路径
-CURRENT_PROJECT_PATH = "/home/szk_25/FedSA-LoRA-Dual"
-FEDERATEDLLM_PATH = "/home/szk_25/FederatedLLM"
+CURRENT_PROJECT_PATH = "/home/user/FedSA-LoRA-Dual"
+FEDERATEDLLM_PATH = "/home/user/FederatedLLM"
 if CURRENT_PROJECT_PATH not in sys.path:
     sys.path.insert(0, CURRENT_PROJECT_PATH)
 if FEDERATEDLLM_PATH not in sys.path:

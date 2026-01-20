@@ -409,7 +409,7 @@ def main():
     
     # 保存结果
     import json
-    with open('/home/szk_25/FedSA-LoRA-Dual/noise_effectiveness_test_results.json', 'w') as f:
+    with open('/home/user/FedSA-LoRA-Dual/noise_effectiveness_test_results.json', 'w') as f:
         # 转换numpy类型为Python类型
         def convert_numpy(obj):
             if isinstance(obj, np.ndarray):

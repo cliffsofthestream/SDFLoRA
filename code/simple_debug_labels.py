@@ -8,7 +8,7 @@ def debug_labels():
     print("=== 简化标签调试 ===")
     
     # 检查GLUE数据目录
-    glue_dir = '/home/szk_25/FedSA-LoRA-Dual/GLUE'
+    glue_dir = '/home/user/FedSA-LoRA-Dual/GLUE'
     if not os.path.exists(glue_dir):
         print(f"GLUE目录不存在: {glue_dir}")
         return

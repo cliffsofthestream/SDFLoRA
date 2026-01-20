@@ -41,7 +41,7 @@ def check_dependencies():
 
 def check_original_project():
     """检查原项目是否存在"""
-    original_path = "/home/szk_25/FedSA-LoRA"
+    original_path = "/home/user/FedSA-LoRA"
     
     if os.path.exists(original_path):
         logger.info(f"✓ 原项目路径存在: {original_path}")
@@ -58,7 +58,7 @@ def run_tests():
     try:
         result = subprocess.run([
             sys.executable, "test_dual_lora.py"
-        ], capture_output=True, text=True, cwd="/home/szk_25/FedSA-LoRA-Dual")
+        ], capture_output=True, text=True, cwd="/home/user/FedSA-LoRA-Dual")
         
         if result.returncode == 0:
             logger.info("✓ 所有测试通过!")
@@ -78,7 +78,7 @@ def run_examples():
     try:
         result = subprocess.run([
             sys.executable, "example_usage.py"
-        ], capture_output=True, text=True, cwd="/home/szk_25/FedSA-LoRA-Dual")
+        ], capture_output=True, text=True, cwd="/home/user/FedSA-LoRA-Dual")
         
         if result.returncode == 0:
             logger.info("✓ 示例运行成功!")
@@ -133,7 +133,7 @@ def show_configs():
     ]
     
     for config_file in config_files:
-        config_path = f"/home/szk_25/FedSA-LoRA-Dual/{config_file}"
+        config_path = f"/home/user/FedSA-LoRA-Dual/{config_file}"
         if os.path.exists(config_path):
             print(f"\n--- {config_file} ---")
             with open(config_path, 'r', encoding='utf-8') as f:
@@ -150,7 +150,7 @@ def show_project_structure():
     """显示项目结构"""
     logger.info("显示项目结构...")
     
-    project_path = "/home/szk_25/FedSA-LoRA-Dual"
+    project_path = "/home/user/FedSA-LoRA-Dual"
     
     print(f"\n项目结构: {project_path}")
     print("-" * 50)

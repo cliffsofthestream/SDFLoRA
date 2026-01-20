@@ -10,7 +10,7 @@ def check_local_mnli_data():
     """检查本地MNLI数据"""
     print("检查本地MNLI数据...")
     
-    glue_path = "/home/szk_25/FedSA-LoRA-Dual/GLUE"
+    glue_path = "/home/user/FedSA-LoRA-Dual/GLUE"
     mnli_path = os.path.join(glue_path, "mnli")
     
     if not os.path.exists(mnli_path):
@@ -81,7 +81,7 @@ def test_model_forward():
         from transformers import AutoModelForSequenceClassification, AutoTokenizer
         
         # 加载模型和分词器
-        model_path = "/home/szk_25/FederatedLLM/llama-7b"
+        model_path = "/home/user/FederatedLLM/llama-7b"
         tokenizer = AutoTokenizer.from_pretrained(model_path)
         model = AutoModelForSequenceClassification.from_pretrained(
             model_path, 
