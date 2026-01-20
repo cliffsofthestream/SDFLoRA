@@ -1,7 +1,7 @@
 import torch
 import os
 from transformers import AutoModelForSequenceClassification, AutoConfig
-from dual_lora_peft_adapter import DualLoraAdapterModel, DualLoraConfig, enable_dual_lora_adapter
+from code.dual_lora_peft_adapter import DualLoraAdapterModel, DualLoraConfig, enable_dual_lora_adapter
 import logging
 
 logger = logging.getLogger(__name__)

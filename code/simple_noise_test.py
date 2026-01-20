@@ -9,7 +9,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # 导入项目模块
-from dp_sgd_engine import DPSGDConfig, DualLoRADPSGDTrainer
+from code.dp_sgd_engine import DPSGDConfig, DualLoRADPSGDTrainer
 
 def test_noise_addition():
     """测试噪声是否被添加到梯度中"""
@@ -92,7 +92,7 @@ def test_aggregation_noise():
     """测试聚合噪声"""
     logger.info("测试聚合噪声...")
     
-    from dual_lora_aggregator import DualLoRAAggregator
+    from code.dual_lora_aggregator import DualLoRAAggregator
     
     # 创建聚合器配置
     dp_config = {

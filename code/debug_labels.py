@@ -10,7 +10,7 @@ sys.path.append('/home/szk_25/FedSA-LoRA-Dual')
 
 from federatedscope.core.configs.config import CN
 from federatedscope.glue.dataloader.dataloader import load_glue_dataset
-from dual_lora_model_builder import get_dual_lora_llm
+from code.dual_lora_model_builder import get_dual_lora_llm
 import torch
 
 def debug_labels():

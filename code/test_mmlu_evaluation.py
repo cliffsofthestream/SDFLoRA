@@ -115,8 +115,8 @@ def test_imports():
         logger.info("Project modules imported successfully")
         
         # 测试双模块LoRA组件
-        from dual_lora_model_builder import get_dual_lora_llm, DualLoRAModelBuilder
-        from dual_lora_peft_adapter import DualLoraAdapterModel
+        from code.dual_lora_model_builder import get_dual_lora_llm, DualLoRAModelBuilder
+        from code.dual_lora_peft_adapter import DualLoraAdapterModel
         logger.info("Dual-LoRA modules imported successfully")
         
         return True

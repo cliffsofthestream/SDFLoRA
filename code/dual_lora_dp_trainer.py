@@ -8,8 +8,8 @@ import logging
 from dataclasses import dataclass
 import numpy as np
 
-from dp_sgd_engine import DPSGDConfig, DualLoRADPSGDTrainer, create_dual_lora_dp_trainer
-from dual_lora_adapter import DualLoRAModel, DualLoRAConfig
+from code.dp_sgd_engine import DPSGDConfig, DualLoRADPSGDTrainer, create_dual_lora_dp_trainer
+from code.dual_lora_adapter import DualLoRAModel, DualLoRAConfig
 
 logger = logging.getLogger(__name__)
 

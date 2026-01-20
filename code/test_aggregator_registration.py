@@ -12,7 +12,7 @@ if CURRENT_PROJECT_PATH not in sys.path:
     sys.path.insert(0, CURRENT_PROJECT_PATH)
 
 # 导入模块
-from dual_lora_aggregator import DualLoRAFederatedAggregator
+from code.dual_lora_aggregator import DualLoRAFederatedAggregator
 
 def test_aggregator_registration():
     """测试聚合器注册"""

@@ -42,9 +42,9 @@ from federatedscope.core.configs.config import global_cfg, CfgNode
 from federatedscope.core.auxiliaries.runner_builder import get_runner
 
 # 导入双模块LoRA模块
-from dual_lora_model_builder import get_dual_lora_llm, DualLoRAModelBuilder
-from dual_lora_aggregator import DualLoRAFederatedAggregator
-from dual_lora_peft_adapter import DualLoraAdapterModel
+from code.dual_lora_model_builder import get_dual_lora_llm, DualLoRAModelBuilder
+from code.dual_lora_aggregator import DualLoRAFederatedAggregator
+from code.dual_lora_peft_adapter import DualLoraAdapterModel
 
 # 设置日志
 logging.basicConfig(level=logging.INFO)

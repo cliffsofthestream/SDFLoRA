@@ -45,7 +45,7 @@ def create_demo_model():
     
     # 创建双模块LoRA模型
     try:
-        from dual_lora_adapter import create_dual_lora_model
+        from code.dual_lora_adapter import create_dual_lora_model
         dual_lora_model = create_dual_lora_model(
             base_model=base_model,
             global_rank=8,
@@ -67,8 +67,8 @@ def demo_dp_sgd_training():
     
     try:
         # 导入DP-SGD模块
-        from dp_sgd_engine import create_dp_sgd_config, create_dual_lora_dp_trainer
-        from dual_lora_dp_trainer import DualLoRADPTrainer
+        from code.dp_sgd_engine import create_dp_sgd_config, create_dual_lora_dp_trainer
+        from code.dual_lora_dp_trainer import DualLoRADPTrainer
         
         # 创建数据和模型
         dataloader = create_demo_data()
@@ -128,7 +128,7 @@ def demo_privacy_analysis():
     logger.info("=" * 60)
     
     try:
-        from dp_sgd_engine import create_dp_sgd_config, PrivacyAccountant
+        from code.dp_sgd_engine import create_dp_sgd_config, PrivacyAccountant
         
         # 测试不同隐私预算的配置
         privacy_configs = [
@@ -180,7 +180,7 @@ def demo_federated_aggregation():
     logger.info("=" * 60)
     
     try:
-        from dual_lora_aggregator import DualLoRAAggregator
+        from code.dual_lora_aggregator import DualLoRAAggregator
         
         # 创建模型
         model = create_demo_model()

@@ -10,9 +10,9 @@ CURRENT_PROJECT_PATH = "/home/szk_25/FedSA-LoRA-Dual"
 if CURRENT_PROJECT_PATH not in sys.path:
     sys.path.insert(0, CURRENT_PROJECT_PATH)
 
-from dual_lora_adapter import DualLoRALayer, DualLoRAModel, DualLoRAConfig, create_dual_lora_model
-from dual_lora_peft_adapter import DualLoraConfig, DualLoraPeftModel, enable_dual_lora_adapter
-from dual_lora_aggregator import DualLoRAAggregator
+from code.dual_lora_adapter import DualLoRALayer, DualLoRAModel, DualLoRAConfig, create_dual_lora_model
+from code.dual_lora_peft_adapter import DualLoraConfig, DualLoraPeftModel, enable_dual_lora_adapter
+from code.dual_lora_aggregator import DualLoRAAggregator
 import logging
 
 logging.basicConfig(level=logging.INFO)

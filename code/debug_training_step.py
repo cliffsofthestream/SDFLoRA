@@ -22,7 +22,7 @@ def debug_training_step():
         sys.path.append('/home/szk_25/FedSA-LoRA-Dual')
         sys.path.append('/home/szk_25/FedSA-LoRA')
         
-        from dual_lora_model_builder import get_dual_lora_llm
+        from code.dual_lora_model_builder import get_dual_lora_llm
         from federatedscope.core.configs.config import CN
         
         # 创建配置

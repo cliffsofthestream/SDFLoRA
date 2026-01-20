@@ -13,9 +13,9 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # 导入项目模块
-from dp_sgd_engine import DPSGDConfig, DualLoRADPSGDTrainer, create_dual_lora_dp_trainer
-from dual_lora_aggregator import DualLoRAAggregator
-from dual_lora_adapter import DualLoRAModel, DualLoRAConfig
+from code.dp_sgd_engine import DPSGDConfig, DualLoRADPSGDTrainer, create_dual_lora_dp_trainer
+from code.dual_lora_aggregator import DualLoRAAggregator
+from code.dual_lora_adapter import DualLoRAModel, DualLoRAConfig
 
 class NoiseEffectivenessTester:
     """差分隐私噪声有效性测试器"""

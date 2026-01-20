@@ -13,8 +13,8 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # 导入项目模块
-from dp_sgd_engine import DPSGDConfig, DualLoRADPSGDTrainer
-from dual_lora_aggregator import DualLoRAAggregator
+from code.dp_sgd_engine import DPSGDConfig, DualLoRADPSGDTrainer
+from code.dual_lora_aggregator import DualLoRAAggregator
 
 class DPVerificationTester:
     """差分隐私验证测试器"""

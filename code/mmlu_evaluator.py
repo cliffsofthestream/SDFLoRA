@@ -42,8 +42,8 @@ if FEDERATEDLLM_PATH not in sys.path:
     sys.path.insert(0, FEDERATEDLLM_PATH)
 
 # 导入双模块LoRA组件
-from dual_lora_model_builder import get_dual_lora_llm, DualLoRAModelBuilder
-from dual_lora_peft_adapter import DualLoraAdapterModel
+from code.dual_lora_model_builder import get_dual_lora_llm, DualLoRAModelBuilder
+from code.dual_lora_peft_adapter import DualLoraAdapterModel
 from fed_utils.evaluation import global_evaluation
 from utils.prompter import Prompter
 

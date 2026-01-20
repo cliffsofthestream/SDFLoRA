@@ -11,15 +11,15 @@ import yaml
 import os
 
 # 导入项目模块
-from dual_lora_adapter import DualLoRAModel, DualLoRAConfig, create_dual_lora_model
-from dual_lora_dp_trainer import (
+from code.dual_lora_adapter import DualLoRAModel, DualLoRAConfig, create_dual_lora_model
+from code.dual_lora_dp_trainer import (
     DualLoRADPTrainer, 
     DualLoRAFedDPTrainer,
     create_dual_lora_dp_trainer_from_config,
     create_federated_dp_trainer_from_config
 )
-from dual_lora_aggregator import DualLoRAFederatedAggregator
-from dp_sgd_engine import DPSGDConfig, create_dp_sgd_config
+from code.dual_lora_aggregator import DualLoRAFederatedAggregator
+from code.dp_sgd_engine import DPSGDConfig, create_dp_sgd_config
 
 # 设置日志
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')

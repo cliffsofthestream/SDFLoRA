@@ -19,13 +19,13 @@ import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 # 导入项目模块
-from dp_sgd_engine import (
+from code.dp_sgd_engine import (
     DPSGDConfig, PrivacyAccountant, DPSGDTrainer, 
     DualLoRADPSGDTrainer, create_dp_sgd_config, create_dual_lora_dp_trainer
 )
-from dual_lora_adapter import DualLoRAModel, DualLoRAConfig, create_dual_lora_model
-from dual_lora_dp_trainer import DualLoRADPTrainer, DualLoRAFedDPTrainer
-from dual_lora_aggregator import DualLoRAAggregator, DualLoRAFederatedAggregator
+from code.dual_lora_adapter import DualLoRAModel, DualLoRAConfig, create_dual_lora_model
+from code.dual_lora_dp_trainer import DualLoRADPTrainer, DualLoRAFedDPTrainer
+from code.dual_lora_aggregator import DualLoRAAggregator, DualLoRAFederatedAggregator
 
 # 设置日志
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')

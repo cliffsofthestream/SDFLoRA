@@ -15,10 +15,10 @@ if CURRENT_PROJECT_PATH not in sys.path:
 if ORIGINAL_PROJECT_PATH not in sys.path:
     sys.path.insert(0, ORIGINAL_PROJECT_PATH)
 
-from dual_lora_adapter import create_dual_lora_model, DualLoRAConfig
-from dual_lora_peft_adapter import enable_dual_lora_adapter, DualLoraConfig
-from dual_lora_aggregator import DualLoRAAggregator
-from dual_lora_model_builder import DualLoRAModelBuilder
+from code.dual_lora_adapter import create_dual_lora_model, DualLoRAConfig
+from code.dual_lora_peft_adapter import enable_dual_lora_adapter, DualLoraConfig
+from code.dual_lora_aggregator import DualLoRAAggregator
+from code.dual_lora_model_builder import DualLoRAModelBuilder
 
 import logging
 logging.basicConfig(level=logging.INFO)
