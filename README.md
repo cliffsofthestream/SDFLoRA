@@ -1,6 +1,6 @@
 # SDFLoRA
 
-SDFLoRA is a research codebase that implements a dual-adapter LoRA design for federated foundation models. The core idea is to split adaptation into a global adapter (federated, shared across clients) and a local adapter (personalized, kept on each client), then fuse their outputs with lightweight mechanisms such as weighted sum, gating, or attention. The project also includes heterogeneous-rank aggregation and optional DP-SGD for privacy.
+SDFLoRA is a research codebase that implements a dual-adapter LoRA design for federated foundation models. The core idea is to split adaptation into a global adapter (federated, shared across clients) and a local adapter (personalized, kept on each client), then fuse their outputs with lightweight mechanism. The project also includes heterogeneous-rank aggregation and optional DP-SGD for privacy.
 
 
 ## Requirements
